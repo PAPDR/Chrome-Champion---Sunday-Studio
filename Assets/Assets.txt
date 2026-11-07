@@ -1,0 +1,1 @@
+Assets is a general folder for imported assets that don't belong to a specified category.
