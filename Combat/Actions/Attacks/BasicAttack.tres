@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Action" format=3 uid="uid://cm73dkx4gjvik"]
+
+[ext_resource type="Script" uid="uid://hjmy7nanieya" path="res://Combat/Actions/Action.gd" id="1_0jdkq"]
+
+[resource]
+script = ExtResource("1_0jdkq")
+power = 100.0
+accuracy = 100.0
+metadata/_custom_type_script = "uid://hjmy7nanieya"

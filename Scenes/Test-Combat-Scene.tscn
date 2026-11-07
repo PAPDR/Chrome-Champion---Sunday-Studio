@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cyjm4oo0tvlsx"]
+
+[ext_resource type="PackedScene" uid="uid://du26diwa7yhi7" path="res://Combat/Combat Controler/CharacterController.tscn" id="1_as7tw"]
+[ext_resource type="Script" uid="uid://dlswewixeayo4" path="res://Characters/Character_Entity.gd" id="2_c7il1"]
+
+[node name="TestCombatScene" type="Node2D" unique_id=1882182739]
+
+[node name="CharacterController" parent="." unique_id=862250006 instance=ExtResource("1_as7tw")]
+
+[node name="Tom-Character" type="Node2D" parent="CharacterController" unique_id=876297580]
+script = ExtResource("2_c7il1")
+Name = "Tom"
+HP = 10
+Resilience = 5
+Dexterity = 5
+Perception = 5
+CT = 5
+metadata/_custom_type_script = "uid://dlswewixeayo4"
+
+[node name="Enemy - Character" type="Node2D" parent="CharacterController" unique_id=295294887]
+script = ExtResource("2_c7il1")
+Name = "Enemy"
+HP = 10
+Resilience = 3
+Dexterity = 3
+Perception = 3
+CT = 3
+metadata/_custom_type_script = "uid://dlswewixeayo4"
