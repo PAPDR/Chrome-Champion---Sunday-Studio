@@ -1,6 +1,35 @@
 [gd_scene format=3 uid="uid://du26diwa7yhi7"]
 
 [ext_resource type="Script" uid="uid://8e6duosgkwu8" path="res://Combat/Combat Controler/CombatController.gd" id="1_py5i2"]
+[ext_resource type="PackedScene" uid="uid://b82oubopbp0oh" path="res://UI/dialogue.tscn" id="2_fs55e"]
 
-[node name="CharacterController" type="Node2D" unique_id=862250006]
+[node name="CharacterController" type="Node2D" unique_id=862250006 node_paths=PackedStringArray("dialogue")]
 script = ExtResource("1_py5i2")
+dialogue = NodePath("Player-Combat/Dialogue")
+
+[node name="Player-Combat" type="CanvasLayer" parent="." unique_id=1334438217]
+
+[node name="Dialogue" parent="Player-Combat" unique_id=1569307354 instance=ExtResource("2_fs55e")]
+
+[node name="Control" type="Control" parent="Player-Combat" unique_id=2129232568]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Player-Combat/Control" unique_id=1700669206]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -71.0
+offset_top = -181.0
+offset_right = 69.0
+offset_bottom = -105.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Attack"

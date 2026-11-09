@@ -2,6 +2,29 @@
 
 [ext_resource type="PackedScene" uid="uid://du26diwa7yhi7" path="res://Combat/Combat Controler/CharacterController.tscn" id="1_as7tw"]
 [ext_resource type="Script" uid="uid://dlswewixeayo4" path="res://Characters/Character_Entity.gd" id="2_c7il1"]
+[ext_resource type="Script" uid="uid://pg1hlkacjs8m" path="res://Characters/Player Definitions/Stat_Sheet.gd" id="3_c7il1"]
+
+[sub_resource type="Resource" id="Resource_as7tw"]
+script = ExtResource("3_c7il1")
+CharacterName = "Tom"
+HP = 10
+Resilience = 5
+Strength = 5
+Dexterity = 5
+Perception = 5
+CT = 5
+metadata/_custom_type_script = "uid://pg1hlkacjs8m"
+
+[sub_resource type="Resource" id="Resource_c7il1"]
+script = ExtResource("3_c7il1")
+CharacterName = "Enemy"
+HP = 10
+Resilience = 3
+Strength = 3
+Dexterity = 3
+Perception = 3
+CT = 3
+metadata/_custom_type_script = "uid://pg1hlkacjs8m"
 
 [node name="TestCombatScene" type="Node2D" unique_id=1882182739]
 
@@ -9,20 +32,10 @@
 
 [node name="Tom-Character" type="Node2D" parent="CharacterController" unique_id=876297580]
 script = ExtResource("2_c7il1")
-Name = "Tom"
-HP = 10
-Resilience = 5
-Dexterity = 5
-Perception = 5
-CT = 5
+stat_sheet_instance = SubResource("Resource_as7tw")
 metadata/_custom_type_script = "uid://dlswewixeayo4"
 
 [node name="Enemy - Character" type="Node2D" parent="CharacterController" unique_id=295294887]
 script = ExtResource("2_c7il1")
-Name = "Enemy"
-HP = 10
-Resilience = 3
-Dexterity = 3
-Perception = 3
-CT = 3
+stat_sheet_instance = SubResource("Resource_c7il1")
 metadata/_custom_type_script = "uid://dlswewixeayo4"

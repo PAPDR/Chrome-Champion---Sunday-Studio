@@ -6,18 +6,9 @@ class_name Character_Entity
 signal turn_ended(character: Character_Entity) #End signal that tells the controller that the turn has ended
 signal turn_started(character: Character_Entity) #Start Turn Signal
 
+#Sheet that contains the stat_sheet
+@export var stat_sheet_instance : stat_sheet
 
-#CHARACTER DEFINITION----
-@export var Name : String
-@export var Sprite : Sprite2D
-
-#STATS
-@export var HP : int = 1
-@export var Resilience : int
-@export var Strength : int
-@export var Dexterity : int
-@export var Perception : int
-@export var CT : int
 
 
 
@@ -39,5 +30,6 @@ func end_turn():
 func character_action(action: Action):
 	#This functions has the character perform a specific action
 	#ie: Attack, etc
+	
 	
 	pass
