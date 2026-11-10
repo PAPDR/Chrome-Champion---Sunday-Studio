@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://sr8eejlu81e1"
+path="res://.godot/imported/Player_Combat.dialogue-89473790a479d24fa0e6eb68a48e76db.tres"
+
+[deps]
+
+source_file="res://dialogue_balloons/Player_Combat.dialogue"
+dest_files=["res://.godot/imported/Player_Combat.dialogue-89473790a479d24fa0e6eb68a48e76db.tres"]
+
+[params]
+
+defaults=true

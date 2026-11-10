@@ -1,4 +1,5 @@
 extends Control
+
 var index : int = 0
 @export var lines : Array = [""]
 @export var text_speed : float = .03
@@ -8,6 +9,7 @@ var complete_text = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	label = $Panel/Label
+	startDialogue()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

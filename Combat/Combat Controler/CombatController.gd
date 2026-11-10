@@ -6,7 +6,7 @@ var player_character_list : Array = []
 var enemy_character_list : Array = [] #Keep list of enemies and players seperate
 var initiative_order: Array[Dictionary] = []
 var initiative_point : int = 0 #Where in the initiative order it is
-@export var dialogue: Control
+@export var player_ui: Control
 
 
 
@@ -15,6 +15,7 @@ func _ready():
 	for child in get_children():
 		add_to_initiative(child)
 	print(initiative_order.size())
+	player_ui.visible = false
 
 #Primarily for testing -
 func _process(delta):
@@ -24,7 +25,10 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_down"):
 		initiative_point = (initiative_point + 1) % (initiative_order.size())
 		print(initiative_point)
-		
+	if Input.is_action_just_pressed("ui_up"):
+		print("Starting Turn")
+		print(initiative_order[initiative_point].get("character"))
+		start_turn(initiative_order[initiative_point].get("character"))
 		
 
 #Starts combat from the start of the round
@@ -58,6 +62,7 @@ func start_player_turn(character: Player_Entity):
 	pass
 
 func start_enemy_turn(character: Character_Entity):
+	player_ui.visible = false
 	pass
 
 func get_enemy_list() -> Array:
