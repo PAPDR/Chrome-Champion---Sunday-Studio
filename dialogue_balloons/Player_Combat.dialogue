@@ -1,4 +1,7 @@
 ~ start
 Combat: What will you do?
- 
+- Attack
+	$> CombatController.start_enemy_turn()
+- Nothing
+	Nathan: You picked the second one.
 => END

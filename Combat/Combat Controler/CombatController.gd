@@ -1,4 +1,5 @@
 extends Node2D
+class_name CombatController
 #Combat Controller controls the actual order of the characters, enemies etc
 #It will handle damage, and anything not directly managed by the entities themselves
 
@@ -14,22 +15,9 @@ func _ready():
 	#At initialization move all children to initiative
 	for child in get_children():
 		add_to_initiative(child)
+		print("l")
 	print(initiative_order.size())
 	player_ui.visible = false
-
-#Primarily for testing -
-func _process(delta):
-	#These are just to test if the mechanics are working, remove
-	if Input.is_action_just_pressed("ui_accept"):
-		print(initiative_order[initiative_point].get("character"))
-	if Input.is_action_just_pressed("ui_down"):
-		initiative_point = (initiative_point + 1) % (initiative_order.size())
-		print(initiative_point)
-	if Input.is_action_just_pressed("ui_up"):
-		print("Starting Turn")
-		print(initiative_order[initiative_point].get("character"))
-		start_turn(initiative_order[initiative_point].get("character"))
-		
 
 #Starts combat from the start of the round
 func start_combat():

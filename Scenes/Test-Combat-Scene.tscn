@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cyjm4oo0tvlsx"]
 
-[ext_resource type="PackedScene" uid="uid://du26diwa7yhi7" path="res://Combat/Combat Controler/CharacterController.tscn" id="1_as7tw"]
-[ext_resource type="Script" uid="uid://cd3222nx3y3k5" path="res://addons/dialogue_manager/nodes/context/dialogue_state_context.gd" id="1_yjnhd"]
+[ext_resource type="PackedScene" uid="uid://du26diwa7yhi7" path="res://Combat/Combat Controler/CombatController.tscn" id="1_as7tw"]
 [ext_resource type="Script" uid="uid://dlswewixeayo4" path="res://Characters/Character_Entity.gd" id="2_c7il1"]
 [ext_resource type="Script" uid="uid://pg1hlkacjs8m" path="res://Characters/Player Definitions/Stat_Sheet.gd" id="3_c7il1"]
 
@@ -29,20 +28,19 @@ metadata/_custom_type_script = "uid://pg1hlkacjs8m"
 
 [node name="TestCombatScene" type="Node2D" unique_id=1882182739]
 
-[node name="DialogueStateContext" type="Node" parent="." unique_id=1053883678 node_paths=PackedStringArray("target")]
-script = ExtResource("1_yjnhd")
-alias = "CombatController"
-target = NodePath("../CharacterController")
-metadata/_custom_type_script = "uid://cd3222nx3y3k5"
+[node name="CombatController" parent="." unique_id=862250006 instance=ExtResource("1_as7tw")]
 
-[node name="CharacterController" parent="." unique_id=862250006 instance=ExtResource("1_as7tw")]
-
-[node name="Tom-Character" type="Node2D" parent="CharacterController" unique_id=876297580]
+[node name="Tom-Character" type="Node2D" parent="CombatController" unique_id=876297580]
 script = ExtResource("2_c7il1")
 stat_sheet_instance = SubResource("Resource_as7tw")
 metadata/_custom_type_script = "uid://dlswewixeayo4"
 
-[node name="Enemy - Character" type="Node2D" parent="CharacterController" unique_id=295294887]
+[node name="Tom-Character2" type="Node2D" parent="CombatController" unique_id=1460784382]
+script = ExtResource("2_c7il1")
+stat_sheet_instance = SubResource("Resource_as7tw")
+metadata/_custom_type_script = "uid://dlswewixeayo4"
+
+[node name="Enemy - Character" type="Node2D" parent="CombatController" unique_id=295294887]
 script = ExtResource("2_c7il1")
 stat_sheet_instance = SubResource("Resource_c7il1")
 metadata/_custom_type_script = "uid://dlswewixeayo4"

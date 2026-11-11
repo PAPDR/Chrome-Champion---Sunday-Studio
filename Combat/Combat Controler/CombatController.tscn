@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://du26diwa7yhi7"]
+
+[ext_resource type="Script" uid="uid://8e6duosgkwu8" path="res://Combat/Combat Controler/CombatController.gd" id="1_py5i2"]
+[ext_resource type="Script" uid="uid://cd3222nx3y3k5" path="res://addons/dialogue_manager/nodes/context/dialogue_state_context.gd" id="2_qbw4o"]
+[ext_resource type="PackedScene" uid="uid://db4be4jmgvt7f" path="res://dialogue_balloons/CustomBalloon.tscn" id="3_0wnck"]
+[ext_resource type="Resource" uid="uid://sr8eejlu81e1" path="res://dialogue_balloons/Player_Combat.dialogue" id="4_1uoui"]
+
+[node name="CombatController" type="Node2D" unique_id=862250006 node_paths=PackedStringArray("player_ui")]
+script = ExtResource("1_py5i2")
+player_ui = NodePath("Player-Combat/PlayerUI")
+
+[node name="DialogueStateContext" type="Node" parent="." unique_id=364589770 node_paths=PackedStringArray("target")]
+script = ExtResource("2_qbw4o")
+alias = "CombatController"
+target = NodePath("..")
+metadata/_custom_type_script = "uid://cd3222nx3y3k5"
+
+[node name="ExampleBalloon" parent="." unique_id=38036521 instance=ExtResource("3_0wnck")]
+dialogue_resource = ExtResource("4_1uoui")
+
+[node name="Player-Combat" type="CanvasLayer" parent="." unique_id=1334438217]
+
+[node name="PlayerUI" type="Control" parent="Player-Combat" unique_id=2129232568]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Player-Combat/PlayerUI" unique_id=1700669206]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -71.0
+offset_top = -181.0
+offset_right = 69.0
+offset_bottom = -105.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Attack"
