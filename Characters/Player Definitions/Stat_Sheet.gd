@@ -18,3 +18,12 @@ class_name stat_sheet
 #Returns
 func get_character_name():
 	return CharacterName
+
+func get_stats_dict() -> Dictionary:
+	return{
+		"HP" : HP,
+		"Resilience": Resilience,
+		"Strength" : Strength,
+		"Dexterity" : Dexterity,
+		"CT" : CT
+	}

@@ -15,7 +15,6 @@ func _ready():
 	#At initialization move all children to initiative
 	for child in get_children():
 		add_to_initiative(child)
-		print("l")
 	print(initiative_order.size())
 	player_ui.visible = false
 

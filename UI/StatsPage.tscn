@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://c2i5r6fmv32h4"]
+
+[ext_resource type="Script" uid="uid://50xx0228jmgq" path="res://UI/stats_page.gd" id="1_goiq4"]
+[ext_resource type="Texture2D" uid="uid://bcyf2tjkjimat" path="res://icon.svg" id="1_yu6a4"]
+
+[node name="StatsPage" type="Control" unique_id=1721564873 node_paths=PackedStringArray("portrait", "bio", "character_name", "character_class", "stat_grid")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_goiq4")
+portrait = NodePath("MarginContainer/MainHBox/LeftPanel/LeftMargin/LeftVBox/Portrait")
+bio = NodePath("MarginContainer/MainHBox/LeftPanel/LeftMargin/LeftVBox/Bio")
+character_name = NodePath("MarginContainer/MainHBox/RightPanel/RightMargin/RightVBox/Name")
+character_class = NodePath("MarginContainer/MainHBox/RightPanel/RightMargin/RightVBox/Class")
+stat_grid = NodePath("MarginContainer/MainHBox/RightPanel/RightMargin/RightVBox/StatScroll/StatGrid")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=692148543]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainHBox" type="HBoxContainer" parent="MarginContainer" unique_id=1577460025]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="LeftPanel" type="PanelContainer" parent="MarginContainer/MainHBox" unique_id=33412722]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="LeftMargin" type="MarginContainer" parent="MarginContainer/MainHBox/LeftPanel" unique_id=1021142111]
+layout_mode = 2
+
+[node name="LeftVBox" type="VBoxContainer" parent="MarginContainer/MainHBox/LeftPanel/LeftMargin" unique_id=1018943122]
+layout_mode = 2
+offset_transform_position = Vector2(1, 0)
+theme_override_constants/separation = 10
+
+[node name="Portrait" type="TextureRect" parent="MarginContainer/MainHBox/LeftPanel/LeftMargin/LeftVBox" unique_id=1595442967]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 5)
+texture = ExtResource("1_yu6a4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Background Title" type="Label" parent="MarginContainer/MainHBox/LeftPanel/LeftMargin/LeftVBox" unique_id=1067687024]
+layout_mode = 2
+size_flags_vertical = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(5, 0)
+text = "Info"
+
+[node name="Bio" type="RichTextLabel" parent="MarginContainer/MainHBox/LeftPanel/LeftMargin/LeftVBox" unique_id=403750726]
+layout_mode = 2
+size_flags_vertical = 3
+offset_transform_enabled = true
+offset_transform_position = Vector2(5, 0)
+text = "fadsfasdfasdfasdfas"
+
+[node name="RightPanel" type="PanelContainer" parent="MarginContainer/MainHBox" unique_id=1706241486]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="RightMargin" type="MarginContainer" parent="MarginContainer/MainHBox/RightPanel" unique_id=935174593]
+layout_mode = 2
+
+[node name="RightVBox" type="VBoxContainer" parent="MarginContainer/MainHBox/RightPanel/RightMargin" unique_id=1905269417]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="MarginContainer/MainHBox/RightPanel/RightMargin/RightVBox" unique_id=1581644509]
+layout_mode = 2
+
+[node name="Class" type="Label" parent="MarginContainer/MainHBox/RightPanel/RightMargin/RightVBox" unique_id=2081910638]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/MainHBox/RightPanel/RightMargin/RightVBox" unique_id=1900876475]
+layout_mode = 2
+
+[node name="StatScroll" type="ScrollContainer" parent="MarginContainer/MainHBox/RightPanel/RightMargin/RightVBox" unique_id=1793162100]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StatGrid" type="GridContainer" parent="MarginContainer/MainHBox/RightPanel/RightMargin/RightVBox/StatScroll" unique_id=1026745236]
+layout_mode = 2
+columns = 2

@@ -1,7 +1,11 @@
 ~ start
-Combat: What will you do?
+What will you do?
 - Attack
-	$> CombatController.start_enemy_turn()
-- Nothing
-	Nathan: You picked the second one.
+	You picked Attack.
+- Brace
+	You picked Brace.
+- Cybernetics
+	You picked Cybernetics
+- Boast
+	You picked Boast
 => END
