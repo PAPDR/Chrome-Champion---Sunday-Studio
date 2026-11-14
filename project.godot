@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Globals="*uid://lbqwsh0s7tjb"
 SignalBus="*uid://sup71vgscbdj"
 DialogueManager="*uid://c3rodes2l3gxb"
+DialogueStorage="*uid://8xu2gqo6ba2m"
 
 [dialogue_manager]
 
@@ -42,7 +43,7 @@ folder_colors={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue_balloons/test.dialogue", "res://dialogue_balloons/Player_Combat.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue_balloons/test.dialogue", "res://dialogue_balloons/Player_Combat.dialogue", "res://dialogue_balloons/EnemyTurn.dialogue", "res://dialogue_balloons/Combat_Turn_Start.dialogue", "res://dialogue_balloons/Turn Ended.dialogue")
 
 [physics]
 

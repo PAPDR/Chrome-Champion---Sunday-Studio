@@ -1,0 +1,3 @@
+~ start
+{{CombatController.get_turn_entity_name()}} taking a turn.
+=> END

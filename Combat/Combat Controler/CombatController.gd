@@ -7,7 +7,11 @@ var player_character_list : Array = []
 var enemy_character_list : Array = [] #Keep list of enemies and players seperate
 var initiative_order: Array[Dictionary] = []
 var initiative_point : int = 0 #Where in the initiative order it is
-@export var player_ui: Control
+@export var enemy_health_bars : VBoxContainer
+@export var ally_health_bars : VBoxContainer
+@export var health_bar_scene: PackedScene
+@export var combat_dialogue : CanvasLayer
+
 
 
 
@@ -16,13 +20,19 @@ func _ready():
 	for child in get_children():
 		add_to_initiative(child)
 	print(initiative_order.size())
-	player_ui.visible = false
-
+	start_combat()
+	
 #Starts combat from the start of the round
 func start_combat():
+	var turn_character: Character_Entity = initiative_order[initiative_point]["character"]
+	print(turn_character)
+	start_turn(turn_character)
 	pass
 
-
+#For testing, state machine should not depend on process
+func _process(delta):
+	if Input.is_action_just_pressed("ui_left"):
+		enemy_character_list[0].take_damage(2)
 
 func add_to_initiative(character : Node = null, initiative : int = 0):
 	if  character is Character_Entity:
@@ -37,8 +47,24 @@ func add_to_initiative(character : Node = null, initiative : int = 0):
 			func(a, b): return a["initiative_value"] > b["initiative_value"]
 		)
 		
+		#Connect Health bar to enemy
+		if character is Enemy_Character_Entity:
+			enemy_character_list.append(character)
+			var bar : CombatHealthBar = health_bar_scene.instantiate()
+			enemy_health_bars.add_child(bar)
+			bar.setup(character)
+		else:
+			player_character_list.append(character)
+			var bar : CombatHealthBar = health_bar_scene.instantiate()
+			ally_health_bars.add_child(bar)
+			bar.setup(character)
+			
+		
 
+
+#STATE MACHINE CONTROLLER ----------------------------------------------
 func start_turn(character: Character_Entity):
+	await dialogue_state(DialogueStorage.COMBAT_TURN_START)
 	if(character is Player_Entity):
 		start_player_turn(character)
 	else:
@@ -46,14 +72,44 @@ func start_turn(character: Character_Entity):
 
 #Starts the player turn (activates player related UI)
 func start_player_turn(character: Player_Entity):
+	print("Start Player Turn")
+	await dialogue_state(DialogueStorage.PLAYER_COMBAT)
+	new_turn_start()
 	pass
 
 func start_enemy_turn(character: Character_Entity):
-	player_ui.visible = false
+	print("Start Enemy Turn")
+	turn_ended(character)
 	pass
 
+func turn_ended(character: Character_Entity):
+	await dialogue_state(DialogueStorage.TURN_ENDED)
+	new_turn_start()
+
+func new_turn_start():
+	var new_initaitve = (initiative_point + 1) % initiative_order.size()
+	initiative_point = new_initaitve
+	var turn_character : Character_Entity = initiative_order[initiative_point]["character"]
+	start_turn(turn_character)
+
+func dialogue_state(dialogue_option : Resource):
+	combat_dialogue.dialogue_resource = dialogue_option
+	combat_dialogue.start()
+	await DialogueManager.dialogue_ended
+	await get_tree().process_frame
+#----------------------------------------------------------
+
+#GET INFO-------------------------------------------------------
 func get_enemy_list() -> Array:
 	return enemy_character_list
 
 func get_player_list() -> Array:
 	return player_character_list
+
+func get_turn_entity() -> Character_Entity:
+	return initiative_order[initiative_point]["character"]
+	
+func get_turn_entity_name() -> String:
+	var character : Character_Entity = initiative_order[initiative_point]["character"]
+	print(character.stat_sheet_instance.CharacterName)
+	return character.stat_sheet_instance.CharacterName

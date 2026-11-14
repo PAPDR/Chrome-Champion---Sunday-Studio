@@ -1,46 +1,46 @@
 [gd_scene format=3 uid="uid://cyjm4oo0tvlsx"]
 
 [ext_resource type="PackedScene" uid="uid://du26diwa7yhi7" path="res://Combat/Combat Controler/CombatController.tscn" id="1_as7tw"]
-[ext_resource type="Script" uid="uid://dlswewixeayo4" path="res://Characters/Character_Entity.gd" id="2_c7il1"]
 [ext_resource type="Script" uid="uid://pg1hlkacjs8m" path="res://Characters/Player Definitions/Stat_Sheet.gd" id="3_c7il1"]
+[ext_resource type="Script" uid="uid://m5t2llmvxnbu" path="res://Characters/Enemy_Character_Entity.gd" id="4_vr058"]
+[ext_resource type="Texture2D" uid="uid://bcyf2tjkjimat" path="res://icon.svg" id="5_u0xc6"]
+[ext_resource type="Script" uid="uid://b4yi4d0dode2c" path="res://Characters/Player Characters/Player_Character_Entity.gd" id="5_vr058"]
 
-[sub_resource type="Resource" id="Resource_as7tw"]
+[sub_resource type="Resource" id="Resource_5kcxd"]
 script = ExtResource("3_c7il1")
-CharacterName = "Tom"
-HP = 10
-Resilience = 5
-Strength = 5
-Dexterity = 5
-Perception = 5
-CT = 5
+CharacterName = "Todd (Enemy)"
+sprite = ExtResource("5_u0xc6")
+Max_HP = 10
+Resilience = 10
+Strength = 10
+Dexterity = 10
+Perception = 10
+CT = 10
+hp = 10
 metadata/_custom_type_script = "uid://pg1hlkacjs8m"
 
-[sub_resource type="Resource" id="Resource_c7il1"]
+[sub_resource type="Resource" id="Resource_r43ev"]
 script = ExtResource("3_c7il1")
-CharacterName = "Enemy"
-HP = 10
-Resilience = 3
-Strength = 3
-Dexterity = 3
-Perception = 3
-CT = 3
+CharacterName = "Amy (Character)"
+Max_HP = 10
+Resilience = 10
+Strength = 10
+Dexterity = 10
+Perception = 10
+CT = 10
+hp = 10
 metadata/_custom_type_script = "uid://pg1hlkacjs8m"
 
 [node name="TestCombatScene" type="Node2D" unique_id=1882182739]
 
 [node name="CombatController" parent="." unique_id=862250006 instance=ExtResource("1_as7tw")]
 
-[node name="Tom-Character" type="Node2D" parent="CombatController" unique_id=876297580]
-script = ExtResource("2_c7il1")
-stat_sheet_instance = SubResource("Resource_as7tw")
-metadata/_custom_type_script = "uid://dlswewixeayo4"
+[node name="Enemy-Todd" type="Node2D" parent="CombatController" unique_id=852309702]
+script = ExtResource("4_vr058")
+stat_sheet_instance = SubResource("Resource_5kcxd")
+metadata/_custom_type_script = "uid://m5t2llmvxnbu"
 
-[node name="Tom-Character2" type="Node2D" parent="CombatController" unique_id=1460784382]
-script = ExtResource("2_c7il1")
-stat_sheet_instance = SubResource("Resource_as7tw")
-metadata/_custom_type_script = "uid://dlswewixeayo4"
-
-[node name="Enemy - Character" type="Node2D" parent="CombatController" unique_id=295294887]
-script = ExtResource("2_c7il1")
-stat_sheet_instance = SubResource("Resource_c7il1")
-metadata/_custom_type_script = "uid://dlswewixeayo4"
+[node name="Player_Entity" type="Node2D" parent="CombatController" unique_id=1101086783]
+script = ExtResource("5_vr058")
+stat_sheet_instance = SubResource("Resource_r43ev")
+metadata/_custom_type_script = "uid://b4yi4d0dode2c"
