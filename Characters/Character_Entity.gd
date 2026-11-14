@@ -33,3 +33,6 @@ func character_action(action: Action):
 	
 	
 	pass
+
+func take_damage(damage: int):
+	stat_sheet_instance.change_health(-1 * damage)

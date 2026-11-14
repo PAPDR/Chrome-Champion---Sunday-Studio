@@ -4,6 +4,9 @@
 
 [resource]
 script = ExtResource("1_0jdkq")
+name = "Basic Attacks"
+dialogue_description = "does a regular attack!"
 power = 100.0
 accuracy = 100.0
+valid_target = 1
 metadata/_custom_type_script = "uid://hjmy7nanieya"

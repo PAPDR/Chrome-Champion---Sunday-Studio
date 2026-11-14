@@ -1,1 +1,2 @@
 extends Character_Entity
+class_name  Enemy_Character_Entity

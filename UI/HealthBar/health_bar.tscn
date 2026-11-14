@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b2napjlifwgd1"]
+
+[ext_resource type="Script" uid="uid://rkiobls5wnjw" path="res://UI/HealthBar/health_bar.gd" id="1_5hgn3"]
+
+[node name="HealthBar" type="VBoxContainer" unique_id=1401477237 node_paths=PackedStringArray("hp_bar", "name_label")]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_5hgn3")
+hp_bar = NodePath("ProgressBar")
+name_label = NodePath("NameLabel")
+
+[node name="NameLabel" type="Label" parent="." unique_id=1281394523]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Test"
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=852168281]
+layout_mode = 2
+size_flags_vertical = 4
+step = 0.1
+show_percentage = false

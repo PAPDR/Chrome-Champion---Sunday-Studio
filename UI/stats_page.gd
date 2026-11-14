@@ -6,9 +6,11 @@ extends Control
 @export var character_name: Label 
 @export var character_class: Label 
 @export var stat_grid: GridContainer 
+@export var SAMPLE : stat_sheet
 
-
-
+func _ready():
+	#FOR TESTING
+	set_data(SAMPLE)
 
 func set_data(stats: stat_sheet) -> void:
 		character_name.text = stats.CharacterName

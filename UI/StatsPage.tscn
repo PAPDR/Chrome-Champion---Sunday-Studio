@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://50xx0228jmgq" path="res://UI/stats_page.gd" id="1_goiq4"]
 [ext_resource type="Texture2D" uid="uid://bcyf2tjkjimat" path="res://icon.svg" id="1_yu6a4"]
+[ext_resource type="Resource" uid="uid://dp7epclh3fcno" path="res://Characters/Player Definitions/SampleCharacter.tres" id="2_2jajh"]
 
 [node name="StatsPage" type="Control" unique_id=1721564873 node_paths=PackedStringArray("portrait", "bio", "character_name", "character_class", "stat_grid")]
 layout_mode = 3
@@ -16,6 +17,7 @@ bio = NodePath("MarginContainer/MainHBox/LeftPanel/LeftMargin/LeftVBox/Bio")
 character_name = NodePath("MarginContainer/MainHBox/RightPanel/RightMargin/RightVBox/Name")
 character_class = NodePath("MarginContainer/MainHBox/RightPanel/RightMargin/RightVBox/Class")
 stat_grid = NodePath("MarginContainer/MainHBox/RightPanel/RightMargin/RightVBox/StatScroll/StatGrid")
+SAMPLE = ExtResource("2_2jajh")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=692148543]
 layout_mode = 1
@@ -63,7 +65,7 @@ layout_mode = 2
 size_flags_vertical = 3
 offset_transform_enabled = true
 offset_transform_position = Vector2(5, 0)
-text = "fadsfasdfasdfasdfas"
+text = "This is filler text for testing. "
 
 [node name="RightPanel" type="PanelContainer" parent="MarginContainer/MainHBox" unique_id=1706241486]
 layout_mode = 2
