@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_0jdkq")
-name = "Basic Attacks"
+name = "Basic Attack"
 dialogue_description = "does a regular attack!"
 power = 100.0
 accuracy = 100.0

@@ -1,3 +1,4 @@
 ~ start
-{{CombatController.get_turn_entity_name()}} taking a turn.
+{{CombatController.get_turn_entity_name()}} uses {{CombatController.get_action_used().action.name}} on {{CombatController.get_action_used().target.stat_sheet_instance.CharacterName}}.
+{{CombatController.get_turn_entity_name()}} {{CombatController.get_action_used().action.dialogue_description}}
 => END

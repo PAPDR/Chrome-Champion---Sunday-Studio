@@ -3,8 +3,8 @@ class_name CombatController
 #Combat Controller controls the actual order of the characters, enemies etc
 #It will handle damage, and anything not directly managed by the entities themselves
 
-var player_character_list : Array = []
-var enemy_character_list : Array = [] #Keep list of enemies and players seperate
+var player_character_list : Array[Character_Entity] = []
+var enemy_character_list : Array[Character_Entity] = [] #Keep list of enemies and players seperate
 var initiative_order: Array[Dictionary] = []
 var initiative_point : int = 0 #Where in the initiative order it is
 @export var enemy_health_bars : VBoxContainer
@@ -12,7 +12,7 @@ var initiative_point : int = 0 #Where in the initiative order it is
 @export var health_bar_scene: PackedScene
 @export var combat_dialogue : CanvasLayer
 
-
+var last_action_used : Action_Choice 
 
 
 func _ready():
@@ -79,6 +79,9 @@ func start_player_turn(character: Player_Entity):
 
 func start_enemy_turn(character: Character_Entity):
 	print("Start Enemy Turn")
+	var turn_action = character.stat_sheet_instance.ai_action(character, enemy_character_list, player_character_list)
+	last_action_used = turn_action
+	await dialogue_state(DialogueStorage.ENEMY_TURN)
 	turn_ended(character)
 	pass
 
@@ -113,3 +116,6 @@ func get_turn_entity_name() -> String:
 	var character : Character_Entity = initiative_order[initiative_point]["character"]
 	print(character.stat_sheet_instance.CharacterName)
 	return character.stat_sheet_instance.CharacterName
+
+func get_action_used() -> Action_Choice:
+	return last_action_used
