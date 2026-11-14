@@ -2,14 +2,22 @@
 
 [ext_resource type="PackedScene" uid="uid://du26diwa7yhi7" path="res://Combat/Combat Controler/CombatController.tscn" id="1_as7tw"]
 [ext_resource type="Script" uid="uid://pg1hlkacjs8m" path="res://Characters/Player Definitions/Stat_Sheet.gd" id="3_c7il1"]
+[ext_resource type="Script" uid="uid://7st3qih0x1ja" path="res://Characters/Enemy AI/SampleAI.gd" id="3_srrc3"]
+[ext_resource type="Resource" uid="uid://cm73dkx4gjvik" path="res://Combat/Actions/Attacks/BasicAttack.tres" id="3_u0xc6"]
 [ext_resource type="Script" uid="uid://m5t2llmvxnbu" path="res://Characters/Enemy_Character_Entity.gd" id="4_vr058"]
 [ext_resource type="Texture2D" uid="uid://bcyf2tjkjimat" path="res://icon.svg" id="5_u0xc6"]
 [ext_resource type="Script" uid="uid://b4yi4d0dode2c" path="res://Characters/Player Characters/Player_Character_Entity.gd" id="5_vr058"]
+
+[sub_resource type="Resource" id="Resource_srrc3"]
+script = ExtResource("3_srrc3")
+metadata/_custom_type_script = "uid://7st3qih0x1ja"
 
 [sub_resource type="Resource" id="Resource_5kcxd"]
 script = ExtResource("3_c7il1")
 CharacterName = "Todd (Enemy)"
 sprite = ExtResource("5_u0xc6")
+enemyAI = SubResource("Resource_srrc3")
+move_list = Array[Object]([ExtResource("3_u0xc6")])
 Max_HP = 10
 Resilience = 10
 Strength = 10
@@ -22,8 +30,9 @@ metadata/_custom_type_script = "uid://pg1hlkacjs8m"
 [sub_resource type="Resource" id="Resource_r43ev"]
 script = ExtResource("3_c7il1")
 CharacterName = "Amy (Character)"
+move_list = null
 Max_HP = 10
-Resilience = 10
+Resilience = 5
 Strength = 10
 Dexterity = 10
 Perception = 10

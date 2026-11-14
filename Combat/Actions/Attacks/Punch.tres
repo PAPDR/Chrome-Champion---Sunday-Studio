@@ -3,9 +3,16 @@
 [ext_resource type="Script" uid="uid://hjmy7nanieya" path="res://Combat/Actions/Action.gd" id="1_mc0su"]
 
 [resource]
+<<<<<<< HEAD:Combat/Actions/Attacks/Punch.tres
 script = ExtResource("1_mc0su")
 name = "Punch"
 dialogue_description = "Strength based"
+=======
+script = ExtResource("1_0jdkq")
+name = "Basic Attack"
+dialogue_description = "does a regular attack!"
+power = 100.0
+>>>>>>> origin/main:Combat/Actions/Attacks/BasicAttack.tres
 accuracy = 100.0
 valid_target = 1
 base_damage = 10.0

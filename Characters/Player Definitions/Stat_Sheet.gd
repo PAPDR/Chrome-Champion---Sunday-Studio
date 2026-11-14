@@ -6,6 +6,9 @@ class_name stat_sheet
 #CHARACTER DEFINITION----
 @export var CharacterName : String
 @export var sprite : Texture
+@export var enemyAI : EnemyAI
+@export var move_list : Array[Action]
+
 
 #STATS
 @export var Max_HP : int = 1
@@ -14,6 +17,7 @@ class_name stat_sheet
 @export var Dexterity : int
 @export var Perception : int
 @export var CT : int
+
 
 #The Temporary Stats
 @export var hp : int = Max_HP
@@ -41,3 +45,11 @@ func change_health(amount: int):
 	hp = min(max(hp+amount, 0), Max_HP)
 	health_change.emit(Max_HP, hp)
 	print("Change")
+
+#Chooses an action based on AI
+func ai_action(actor: Character_Entity, allies: Array[Character_Entity], opponents: Array[Character_Entity]) -> Action_Choice:
+	if not enemyAI == null:
+		return enemyAI.choose_action(actor, allies, opponents, move_list)
+	else:
+		return Globals.create_action_choice(Globals.BASIC_ATTACK, opponents[0])
+	
