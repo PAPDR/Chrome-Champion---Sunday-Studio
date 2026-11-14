@@ -1,42 +1,21 @@
 [gd_scene format=3 uid="uid://cyjm4oo0tvlsx"]
 
 [ext_resource type="PackedScene" uid="uid://du26diwa7yhi7" path="res://Combat/Combat Controler/CombatController.tscn" id="1_as7tw"]
-[ext_resource type="Script" uid="uid://pg1hlkacjs8m" path="res://Characters/Player Definitions/Stat_Sheet.gd" id="3_c7il1"]
-[ext_resource type="Script" uid="uid://7st3qih0x1ja" path="res://Characters/Enemy AI/SampleAI.gd" id="3_srrc3"]
-[ext_resource type="Resource" uid="uid://cm73dkx4gjvik" path="res://Combat/Actions/Attacks/BasicAttack.tres" id="3_u0xc6"]
+[ext_resource type="Resource" uid="uid://dp7epclh3fcno" path="res://Characters/Player Definitions/SampleCharacter.tres" id="3_c7il1"]
 [ext_resource type="Script" uid="uid://m5t2llmvxnbu" path="res://Characters/Enemy_Character_Entity.gd" id="4_vr058"]
-[ext_resource type="Texture2D" uid="uid://bcyf2tjkjimat" path="res://icon.svg" id="5_u0xc6"]
+[ext_resource type="Script" uid="uid://hjmy7nanieya" path="res://Combat/Actions/Action.gd" id="5_u0xc6"]
 [ext_resource type="Script" uid="uid://b4yi4d0dode2c" path="res://Characters/Player Characters/Player_Character_Entity.gd" id="5_vr058"]
+[ext_resource type="Script" uid="uid://pg1hlkacjs8m" path="res://Characters/Player Definitions/Stat_Sheet.gd" id="6_srrc3"]
 
-[sub_resource type="Resource" id="Resource_srrc3"]
-script = ExtResource("3_srrc3")
-metadata/_custom_type_script = "uid://7st3qih0x1ja"
-
-[sub_resource type="Resource" id="Resource_5kcxd"]
-script = ExtResource("3_c7il1")
+[sub_resource type="Resource" id="Resource_dc7v4"]
+script = ExtResource("6_srrc3")
 CharacterName = "Todd (Enemy)"
-sprite = ExtResource("5_u0xc6")
-enemyAI = SubResource("Resource_srrc3")
-move_list = Array[Object]([ExtResource("3_u0xc6")])
 Max_HP = 10
-Resilience = 10
-Strength = 10
-Dexterity = 10
-Perception = 10
-CT = 10
-hp = 10
-metadata/_custom_type_script = "uid://pg1hlkacjs8m"
-
-[sub_resource type="Resource" id="Resource_r43ev"]
-script = ExtResource("3_c7il1")
-CharacterName = "Amy (Character)"
-move_list = null
-Max_HP = 10
-Resilience = 5
-Strength = 10
-Dexterity = 10
-Perception = 10
-CT = 10
+Resilience = 6
+Strength = 6
+Dexterity = 6
+Perception = 6
+CT = 6
 hp = 10
 metadata/_custom_type_script = "uid://pg1hlkacjs8m"
 
@@ -44,12 +23,12 @@ metadata/_custom_type_script = "uid://pg1hlkacjs8m"
 
 [node name="CombatController" parent="." unique_id=862250006 instance=ExtResource("1_as7tw")]
 
-[node name="Enemy-Todd" type="Node2D" parent="CombatController" unique_id=852309702]
-script = ExtResource("4_vr058")
-stat_sheet_instance = SubResource("Resource_5kcxd")
-metadata/_custom_type_script = "uid://m5t2llmvxnbu"
-
-[node name="Player_Entity" type="Node2D" parent="CombatController" unique_id=1101086783]
+[node name="Player_Entity" type="Node2D" parent="CombatController" unique_id=1098428249]
 script = ExtResource("5_vr058")
-stat_sheet_instance = SubResource("Resource_r43ev")
+stat_sheet_instance = ExtResource("3_c7il1")
 metadata/_custom_type_script = "uid://b4yi4d0dode2c"
+
+[node name="Enemy_Character_Entity" type="Node2D" parent="CombatController" unique_id=200433971]
+script = ExtResource("4_vr058")
+stat_sheet_instance = SubResource("Resource_dc7v4")
+metadata/_custom_type_script = "uid://m5t2llmvxnbu"

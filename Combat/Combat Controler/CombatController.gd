@@ -76,6 +76,7 @@ func start_turn(character: Character_Entity):
 func start_player_turn(character: Player_Entity):
 	print("Start Player Turn")
 	await dialogue_state(DialogueStorage.PLAYER_COMBAT)
+	do_action(character, Globals.create_action_choice(Globals.BASIC_ATTACK, enemy_character_list[0]))
 	new_turn_start()
 	pass
 

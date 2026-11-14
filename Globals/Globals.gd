@@ -1,7 +1,8 @@
 extends Node
 #Globals has global values stored through the game
 
-const BASIC_ATTACK = preload("uid://cm73dkx4gjvik")
+const BASIC_ATTACK = preload("uid://b71pkrcowd1tl")
+
 
 func create_action_choice(action: Action, choice: Character_Entity):
 	var new = Action_Choice.new()

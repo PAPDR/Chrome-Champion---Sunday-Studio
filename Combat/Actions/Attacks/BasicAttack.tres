@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Action" format=3 uid="uid://b71pkrcowd1tl"]
+
+[ext_resource type="Script" uid="uid://hjmy7nanieya" path="res://Combat/Actions/Action.gd" id="1_0jdkq"]
+
+[resource]
+script = ExtResource("1_0jdkq")
+name = "Basic Attack"
+dialogue_description = "used a basic attack"
+metadata/_custom_type_script = "uid://hjmy7nanieya"

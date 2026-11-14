@@ -30,9 +30,6 @@ func end_turn():
 func character_action(action: Action):
 	#This functions has the character perform a specific action
 	#ie: Attack, etc
-	
-	
-	
 	pass
 
 func take_damage(damage: int):
