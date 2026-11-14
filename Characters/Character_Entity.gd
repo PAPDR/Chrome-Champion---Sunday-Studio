@@ -32,6 +32,7 @@ func character_action(action: Action):
 	#ie: Attack, etc
 	
 	
+	
 	pass
 
 func take_damage(damage: int):
