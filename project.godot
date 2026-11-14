@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Chrome Champions"
+run/main_scene="uid://cyjm4oo0tvlsx"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
