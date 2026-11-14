@@ -32,7 +32,7 @@ func start_combat():
 #For testing, state machine should not depend on process
 func _process(delta):
 	if Input.is_action_just_pressed("ui_left"):
-		enemy_character_list[0].take_damage(2)
+		player_character_list[0].take_damage(2)
 
 func add_to_initiative(character : Node = null, initiative : int = 0):
 	if  character is Character_Entity:
@@ -48,6 +48,8 @@ func add_to_initiative(character : Node = null, initiative : int = 0):
 		)
 		
 		#Connect Health bar to enemy
+		#Each health bar gets added and connects damage to itself
+		#TODO: Add way to remove healthbar on death
 		if character is Enemy_Character_Entity:
 			enemy_character_list.append(character)
 			var bar : CombatHealthBar = health_bar_scene.instantiate()
@@ -77,29 +79,52 @@ func start_player_turn(character: Player_Entity):
 	new_turn_start()
 	pass
 
+#Start of the enemy turn. 
+#Note: Stores the last action used, and uses the ai script to decide what to do.
 func start_enemy_turn(character: Character_Entity):
 	print("Start Enemy Turn")
 	var turn_action = character.stat_sheet_instance.ai_action(character, enemy_character_list, player_character_list)
 	last_action_used = turn_action
 	await dialogue_state(DialogueStorage.ENEMY_TURN)
+	
+	await do_action(character, turn_action) #Performs the actual action
+	
 	turn_ended(character)
 	pass
 
+#Used when turn ends
+#NOTE: May need to add things here to remove buffs/debuffs/do DOT damage
 func turn_ended(character: Character_Entity):
 	await dialogue_state(DialogueStorage.TURN_ENDED)
 	new_turn_start()
 
+#Adjusts the initiative and runs the start turn
 func new_turn_start():
 	var new_initaitve = (initiative_point + 1) % initiative_order.size()
 	initiative_point = new_initaitve
 	var turn_character : Character_Entity = initiative_order[initiative_point]["character"]
 	start_turn(turn_character)
 
+#Creates the dialogue state based with the allocated option
 func dialogue_state(dialogue_option : Resource):
 	combat_dialogue.dialogue_resource = dialogue_option
 	combat_dialogue.start()
 	await DialogueManager.dialogue_ended
 	await get_tree().process_frame
+
+#do_action performs the actual action decided by player or AI.
+#It needs to verify what it is doing (damaging or healing, or etc)
+#Needs to verify that everything is legal (no crashing)
+#Needs to handle animation
+#TODO:
+#Check for healing, boasting, items, etc
+#MAY NOT BE DAMAGE
+func do_action(character: Character_Entity, action_choice: Action_Choice):
+	var move = action_choice.action
+	var target = action_choice.target
+	
+	target.take_damage(Globals.damage_calculation(character, target, move))
+	
 #----------------------------------------------------------
 
 #GET INFO-------------------------------------------------------
