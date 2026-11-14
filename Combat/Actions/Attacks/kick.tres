@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Action" format=3 uid="uid://d3o4f62j2xdoo"]
+
+[ext_resource type="Script" uid="uid://hjmy7nanieya" path="res://Combat/Actions/Action.gd" id="1_2xb0r"]
+
+[resource]
+script = ExtResource("1_2xb0r")
+name = "Kick"
+accuracy = 100.0
+valid_target = 1
+base_damage = 10.0
+scaling_stat = 1
+metadata/_custom_type_script = "uid://hjmy7nanieya"
