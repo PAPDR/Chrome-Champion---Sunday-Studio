@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Action" format=3 uid="uid://vmwr4uo8a1p3"]
+
+[ext_resource type="Script" uid="uid://hjmy7nanieya" path="res://Combat/Actions/Action.gd" id="1_gnesk"]
+
+[resource]
+script = ExtResource("1_gnesk")
+dialogue_description = "MetalBones_Activate"
+accuracy = 100.0
+scaling_stat = 4
+action_type = 1
+metadata/_custom_type_script = "uid://hjmy7nanieya"

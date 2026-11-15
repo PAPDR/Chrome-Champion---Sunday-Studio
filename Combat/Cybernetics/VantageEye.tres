@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Cybernetic" format=3 uid="uid://bqe4nm35a7xmb"]
+
+[ext_resource type="Script" uid="uid://6h8betc2efpl" path="res://Combat/Cybernetics/Cybernetic.gd" id="1_f374u"]
+
+[resource]
+script = ExtResource("1_f374u")
+cybernetic_name = "Cyber Eye"
+cybernetic_type = 3
+critical_chance_multiplier = 2.0
+duration_turns = 2
+metadata/_custom_type_script = "uid://6h8betc2efpl"

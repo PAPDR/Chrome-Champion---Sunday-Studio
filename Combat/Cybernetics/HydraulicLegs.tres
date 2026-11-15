@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Cybernetic" format=3 uid="uid://b2o3r3nq5kve"]
+
+[ext_resource type="Script" uid="uid://6h8betc2efpl" path="res://Combat/Cybernetics/Cybernetic.gd" id="1_ovlbf"]
+
+[resource]
+script = ExtResource("1_ovlbf")
+cybernetic_name = "Hydraulic Legs"
+cybernetic_type = 1
+metadata/_custom_type_script = "uid://6h8betc2efpl"

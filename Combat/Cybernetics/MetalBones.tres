@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Cybernetic" format=3 uid="uid://bvymv6u34jp1d"]
+
+[ext_resource type="Script" uid="uid://6h8betc2efpl" path="res://Combat/Cybernetics/Cybernetic.gd" id="1_ulnws"]
+
+[resource]
+script = ExtResource("1_ulnws")
+cybernetic_name = "Metal Bones"
+cybernetic_type = 2
+damage_reduction = 0.3
+metadata/_custom_type_script = "uid://6h8betc2efpl"

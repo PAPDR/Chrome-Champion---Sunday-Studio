@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Action" format=3 uid="uid://mriui22eu38y"]
+
+[ext_resource type="Script" uid="uid://hjmy7nanieya" path="res://Combat/Actions/Action.gd" id="1_n84g1"]
+
+[resource]
+script = ExtResource("1_n84g1")
+name = "Robo Arms"
+accuracy = 100.0
+valid_target = 1
+base_damage = 20.0
+ignores_brace = true
+metadata/_custom_type_script = "uid://hjmy7nanieya"

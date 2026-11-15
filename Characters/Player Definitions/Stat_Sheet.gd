@@ -8,6 +8,8 @@ class_name stat_sheet
 @export var sprite : Texture
 @export var enemyAI : EnemyAI
 @export var move_list : Array[Action]
+@export var cybernetics : Array[Cybernetic]
+
 
 
 #STATS
@@ -27,6 +29,13 @@ signal health_change(Max_HP: int, hp: int)
 #Returns
 func get_character_name():
 	return CharacterName
+
+func has_cybernetic(type: Cybernetic.CyberneticType) -> bool:
+	for cybernetic in cybernetics:
+		if cybernetic.cybernetic_type == type:
+			return true
+
+	return false
 
 func get_stats_dict() -> Dictionary:
 	return{

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Action" format=3 uid="uid://cm8wu7ocu27jb"]
+
+[ext_resource type="Script" uid="uid://hjmy7nanieya" path="res://Combat/Actions/Action.gd" id="1_0xqqc"]
+
+[resource]
+script = ExtResource("1_0xqqc")
+name = "Activate VantageEye"
+accuracy = 100.0
+scaling_stat = 4
+action_type = 1
+metadata/_custom_type_script = "uid://hjmy7nanieya"

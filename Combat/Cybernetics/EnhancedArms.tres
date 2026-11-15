@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Cybernetic" format=3 uid="uid://be3m1w6va0ovy"]
+
+[ext_resource type="Resource" uid="uid://bdgt4e1lg0ffn" path="res://Combat/Actions/Attacks/Crushing_Blow.tres" id="1_dhl5w"]
+[ext_resource type="Script" uid="uid://6h8betc2efpl" path="res://Combat/Cybernetics/Cybernetic.gd" id="1_ruv5g"]
+
+[resource]
+script = ExtResource("1_ruv5g")
+cybernetic_name = "MetalArms"
+cybernetic_type = 1
+granted_action = ExtResource("1_dhl5w")
+metadata/_custom_type_script = "uid://6h8betc2efpl"

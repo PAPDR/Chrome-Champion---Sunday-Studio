@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Action" format=3 uid="uid://bdgt4e1lg0ffn"]
+
+[ext_resource type="Script" uid="uid://hjmy7nanieya" path="res://Combat/Actions/Action.gd" id="1_g5c4l"]
+
+[resource]
+script = ExtResource("1_g5c4l")
+accuracy = 100.0
+valid_target = 1
+base_damage = 20.0
+ignores_brace = true
+metadata/_custom_type_script = "uid://hjmy7nanieya"

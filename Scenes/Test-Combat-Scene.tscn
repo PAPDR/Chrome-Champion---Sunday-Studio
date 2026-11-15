@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://du26diwa7yhi7" path="res://Combat/Combat Controler/CombatController.tscn" id="1_as7tw"]
 [ext_resource type="Resource" uid="uid://dp7epclh3fcno" path="res://Characters/Player Definitions/SampleCharacter.tres" id="3_c7il1"]
 [ext_resource type="Script" uid="uid://m5t2llmvxnbu" path="res://Characters/Enemy_Character_Entity.gd" id="4_vr058"]
+[ext_resource type="Script" uid="uid://6h8betc2efpl" path="res://Combat/Cybernetics/Cybernetic.gd" id="5_srrc3"]
 [ext_resource type="Script" uid="uid://hjmy7nanieya" path="res://Combat/Actions/Action.gd" id="5_u0xc6"]
 [ext_resource type="Script" uid="uid://b4yi4d0dode2c" path="res://Characters/Player Characters/Player_Character_Entity.gd" id="5_vr058"]
 [ext_resource type="Script" uid="uid://pg1hlkacjs8m" path="res://Characters/Player Definitions/Stat_Sheet.gd" id="6_srrc3"]

@@ -16,6 +16,7 @@ var last_action_used : Action_Choice
 
 
 func _ready():
+
 	#At initialization move all children to initiative
 	for child in get_children():
 		add_to_initiative(child)
@@ -123,9 +124,14 @@ func dialogue_state(dialogue_option : Resource):
 func do_action(character: Character_Entity, action_choice: Action_Choice):
 	var move = action_choice.action
 	var target = action_choice.target
-	
-	target.take_damage(Globals.damage_calculation(character, target, move))
-	
+	match move.action_type:
+		Action.ActionType.ATTACK:
+			character.is_bracing = false
+			target.take_damage(Globals.damage_calculation(character, target, move))
+
+		Action.ActionType.DEFENSE:
+			if move.name == "Brace":
+				character.is_bracing = true	
 #----------------------------------------------------------
 
 #GET INFO-------------------------------------------------------

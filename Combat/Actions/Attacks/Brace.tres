@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Action" format=3 uid="uid://cbq1k5bqbvqff"]
+
+[ext_resource type="Script" uid="uid://hjmy7nanieya" path="res://Combat/Actions/Action.gd" id="1_xh7ac"]
+
+[resource]
+script = ExtResource("1_xh7ac")
+name = "Brace"
+accuracy = 100.0
+scaling_stat = 2
+action_type = 1
+metadata/_custom_type_script = "uid://hjmy7nanieya"
