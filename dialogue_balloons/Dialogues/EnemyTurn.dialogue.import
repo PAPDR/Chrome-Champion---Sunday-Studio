@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://d4d4kr25vjl7q"
+path="res://.godot/imported/EnemyTurn.dialogue-b7114c0aa4cee8fbcc37d8a2e987f159.tres"
+
+[deps]
+
+source_file="res://dialogue_balloons/Dialogues/EnemyTurn.dialogue"
+dest_files=["res://.godot/imported/EnemyTurn.dialogue-b7114c0aa4cee8fbcc37d8a2e987f159.tres"]
+
+[params]
+
+defaults=true

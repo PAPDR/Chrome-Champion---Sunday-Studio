@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dab4kp71etjog"
+path="res://.godot/imported/Turn Ended.dialogue-b61bb6e48a51e6ebd2ded74fa858d1e5.tres"
+
+[deps]
+
+source_file="res://dialogue_balloons/Dialogues/Turn Ended.dialogue"
+dest_files=["res://.godot/imported/Turn Ended.dialogue-b61bb6e48a51e6ebd2ded74fa858d1e5.tres"]
+
+[params]
+
+defaults=true

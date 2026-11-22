@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://gvnouqhf35fk"]
 
 [ext_resource type="Script" uid="uid://cqpyw0l6sbk1j" path="res://dialogue_balloons/balloon.gd" id="1_36de5"]
-[ext_resource type="Resource" uid="uid://c5872l1ut0jwp" path="res://dialogue_balloons/test.dialogue" id="2_0jkkh"]
+[ext_resource type="Resource" uid="uid://c5872l1ut0jwp" path="res://dialogue_balloons/Dialogues/test.dialogue" id="2_0jkkh"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/nodes/dialogue_label/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/nodes/responses_menu/dialogue_responses_menu.gd" id="3_72ixx"]
 

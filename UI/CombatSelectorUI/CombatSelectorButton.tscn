@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://ijk5m274bptw"]
+
+[ext_resource type="Texture2D" uid="uid://cdw76fbhvyuqo" path="res://Assets/ui_assets/ui_button_gym.PNG" id="1_qiwvw"]
+[ext_resource type="Texture2D" uid="uid://ce33bjkw8qv5e" path="res://Assets/ui_assets/ui_button_friend.PNG" id="2_3xeb5"]
+[ext_resource type="Texture2D" uid="uid://3vgtesvfw6oj" path="res://Assets/ui_assets/ui_button_hover_friend.PNG" id="2_4c2io"]
+[ext_resource type="Script" uid="uid://cw5qpse47tcyf" path="res://UI/CombatSelectorUI/combat_selector_button.gd" id="4_cvla6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jmb0c"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 40.0
+content_margin_bottom = 20.0
+texture = ExtResource("1_qiwvw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qiwvw"]
+texture = ExtResource("2_3xeb5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1uovn"]
+texture = ExtResource("2_4c2io")
+
+[node name="CombatSelectorButton" type="Button" unique_id=691608660]
+custom_minimum_size = Vector2(120, 80)
+offset_right = 135.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxTexture_jmb0c")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qiwvw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1uovn")
+script = ExtResource("4_cvla6")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

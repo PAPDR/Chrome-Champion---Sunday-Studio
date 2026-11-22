@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cd3222nx3y3k5" path="res://addons/dialogue_manager/nodes/context/dialogue_state_context.gd" id="2_qbw4o"]
 [ext_resource type="PackedScene" uid="uid://b2napjlifwgd1" path="res://UI/HealthBar/health_bar.tscn" id="2_qo0f3"]
 [ext_resource type="PackedScene" uid="uid://db4be4jmgvt7f" path="res://dialogue_balloons/CustomBalloon.tscn" id="3_0wnck"]
-[ext_resource type="Resource" uid="uid://d4d4kr25vjl7q" path="res://dialogue_balloons/EnemyTurn.dialogue" id="5_jllqc"]
+[ext_resource type="Resource" uid="uid://d4d4kr25vjl7q" path="res://dialogue_balloons/Dialogues/EnemyTurn.dialogue" id="5_jllqc"]
 [ext_resource type="Script" uid="uid://4tigb6y4r30b" path="res://UI/HealthBar/health_bar_controller.gd" id="6_jllqc"]
 
 [node name="CombatController" type="Node2D" unique_id=862250006 node_paths=PackedStringArray("enemy_health_bars", "ally_health_bars", "combat_dialogue")]

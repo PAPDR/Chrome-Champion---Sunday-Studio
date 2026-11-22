@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://cbeyrjf0cx0np"
+path="res://.godot/imported/Combat_Turn_Start.dialogue-d72dd35b6b8affe556c4bd38dc4d4210.tres"
+
+[deps]
+
+source_file="res://dialogue_balloons/Dialogues/Combat_Turn_Start.dialogue"
+dest_files=["res://.godot/imported/Combat_Turn_Start.dialogue-d72dd35b6b8affe556c4bd38dc4d4210.tres"]
+
+[params]
+
+defaults=true
