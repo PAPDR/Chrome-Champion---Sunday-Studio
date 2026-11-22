@@ -2,6 +2,7 @@ extends Button
 class_name Action_Button
 
 @export var hover_description : String
+@export var action : Action
 
 
 
@@ -18,5 +19,5 @@ func _on_mouse_exited():
 
 
 func _on_pressed():
-	SignalBus.action_button_press.emit()
+	SignalBus.action_button_press.emit(self)
 	pass # Replace with function body.

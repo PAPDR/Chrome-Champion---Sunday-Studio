@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://d4d4kr25vjl7q" path="res://dialogue_balloons/Dialogues/EnemyTurn.dialogue" id="5_jllqc"]
 [ext_resource type="Script" uid="uid://4tigb6y4r30b" path="res://UI/HealthBar/health_bar_controller.gd" id="6_jllqc"]
 
-[node name="CombatController" type="Node2D" unique_id=862250006 node_paths=PackedStringArray("enemy_health_bars", "ally_health_bars", "combat_dialogue")]
+[node name="CombatController2" type="Node2D" unique_id=862250006 node_paths=PackedStringArray("enemy_health_bars", "ally_health_bars", "combat_dialogue")]
 script = ExtResource("1_py5i2")
 enemy_health_bars = NodePath("Combat-UI/HealthBarController/EnemyHealthBars")
 ally_health_bars = NodePath("Combat-UI/HealthBarController/AllyHealthBars")

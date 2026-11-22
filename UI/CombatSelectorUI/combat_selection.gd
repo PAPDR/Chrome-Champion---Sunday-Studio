@@ -1,4 +1,5 @@
 extends Control
+class_name  CombatSelection
 
 @onready var action_description = $ActionDescription
 @onready var stat_labels = $"Stat Labels"

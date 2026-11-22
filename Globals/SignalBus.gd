@@ -7,4 +7,4 @@ signal finished_dialogue
 #ACTION BUTTON SIGNALS
 signal hovering_button(button : Action_Button)
 signal exit_hover_button(button : Action_Button)
-signal action_button_press
+signal action_button_press(button : Action_Button)
