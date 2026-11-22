@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="stat_sheet" format=3 uid="uid://dm01544k2sfmr"]
-
-[ext_resource type="Script" uid="uid://hjmy7nanieya" path="res://Combat/Actions/Action.gd" id="1_qklpc"]
-[ext_resource type="Script" uid="uid://pg1hlkacjs8m" path="res://Characters/Player Definitions/Stat_Sheet.gd" id="2_kia38"]
-
-[resource]
-script = ExtResource("2_kia38")
-hp = null
-metadata/_custom_type_script = "uid://pg1hlkacjs8m"

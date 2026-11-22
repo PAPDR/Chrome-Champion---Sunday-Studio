@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="stat_sheet" format=3 uid="uid://i5abqppp3fyn"]
+
+[ext_resource type="Script" uid="uid://6h8betc2efpl" path="res://Combat/Cybernetics/Cybernetic.gd" id="1_td5gv"]
+[ext_resource type="Script" uid="uid://hjmy7nanieya" path="res://Combat/Actions/Action.gd" id="2_8u4eo"]
+[ext_resource type="Script" uid="uid://7st3qih0x1ja" path="res://Characters/Enemy AI/SampleAI.gd" id="2_cgasr"]
+[ext_resource type="Script" uid="uid://pg1hlkacjs8m" path="res://Characters/Player Definitions/Stat_Sheet.gd" id="3_rso2h"]
+[ext_resource type="Resource" uid="uid://q17mwn0qqmm" path="res://Combat/Actions/Attacks/Punch.tres" id="4_fcxue"]
+[ext_resource type="Resource" uid="uid://d3o4f62j2xdoo" path="res://Combat/Actions/Attacks/Kick.tres" id="5_0k27g"]
+[ext_resource type="Resource" uid="uid://cbq1k5bqbvqff" path="res://Combat/Actions/Attacks/Brace.tres" id="6_guoyo"]
+[ext_resource type="Texture2D" uid="uid://c85nlg5hipbep" path="res://Assets/Basic_Fighter_Brown_PNG.png" id="8_ucpmh"]
+
+[sub_resource type="Resource" id="Resource_kgfxs"]
+script = ExtResource("2_cgasr")
+metadata/_custom_type_script = "uid://7st3qih0x1ja"
+
+[resource]
+script = ExtResource("3_rso2h")
+CharacterName = "Robert"
+sprite = ExtResource("8_ucpmh")
+enemyAI = SubResource("Resource_kgfxs")
+move_list = Array[ExtResource("2_8u4eo")]([ExtResource("4_fcxue"), ExtResource("5_0k27g"), ExtResource("6_guoyo")])
+Max_HP = 20
+Resilience = 5
+Strength = 8
+Dexterity = 6
+Perception = 4
+CT = 10
+hp = null
+metadata/_custom_type_script = "uid://pg1hlkacjs8m"
