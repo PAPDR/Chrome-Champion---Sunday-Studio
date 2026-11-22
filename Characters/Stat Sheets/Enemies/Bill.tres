@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://7st3qih0x1ja" path="res://Characters/Enemy AI/SampleAI.gd" id="2_ho8qw"]
 [ext_resource type="Script" uid="uid://pg1hlkacjs8m" path="res://Characters/Player Definitions/Stat_Sheet.gd" id="3_wgijq"]
 [ext_resource type="Resource" uid="uid://q17mwn0qqmm" path="res://Combat/Actions/Attacks/Punch.tres" id="4_3utrq"]
-[ext_resource type="Resource" uid="uid://d3o4f62j2xdoo" path="res://Combat/Actions/Attacks/Kick.tres" id="5_8dhu1"]
+[ext_resource type="Resource" uid="uid://d3o4f62j2xdoo" path="res://Combat/Actions/Attacks/kick.tres" id="5_8dhu1"]
 [ext_resource type="Resource" uid="uid://cbq1k5bqbvqff" path="res://Combat/Actions/Attacks/Brace.tres" id="6_eskdq"]
 [ext_resource type="Texture2D" uid="uid://c85nlg5hipbep" path="res://Assets/Basic_Fighter_Brown_PNG.png" id="8_a8f4v"]
 

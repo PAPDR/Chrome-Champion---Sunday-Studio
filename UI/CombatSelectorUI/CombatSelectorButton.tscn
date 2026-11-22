@@ -19,9 +19,9 @@ texture = ExtResource("2_3xeb5")
 texture = ExtResource("2_4c2io")
 
 [node name="CombatSelectorButton" type="Button" unique_id=691608660]
-custom_minimum_size = Vector2(120, 80)
-offset_right = 135.0
-offset_bottom = 80.0
+custom_minimum_size = Vector2(150, 95)
+offset_right = 150.0
+offset_bottom = 93.0
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxTexture_jmb0c")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_qiwvw")

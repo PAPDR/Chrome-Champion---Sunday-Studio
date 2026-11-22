@@ -5,6 +5,7 @@ class_name stat_sheet
 
 #CHARACTER DEFINITION----
 @export var CharacterName : String
+@export var headshot : Texture
 @export var sprite : Texture
 @export var enemyAI : EnemyAI
 @export var move_list : Array[Action]
