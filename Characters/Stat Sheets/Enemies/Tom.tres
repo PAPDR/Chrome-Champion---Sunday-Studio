@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="stat_sheet" format=3 uid="uid://dm01544k2sfmr"]
+
+[ext_resource type="Script" uid="uid://6h8betc2efpl" path="res://Combat/Cybernetics/Cybernetic.gd" id="1_ggwc1"]
+[ext_resource type="Script" uid="uid://7st3qih0x1ja" path="res://Characters/Enemy AI/SampleAI.gd" id="2_ggwc1"]
+[ext_resource type="Script" uid="uid://hjmy7nanieya" path="res://Combat/Actions/Action.gd" id="3_8v0st"]
+[ext_resource type="Resource" uid="uid://q17mwn0qqmm" path="res://Combat/Actions/Attacks/Punch.tres" id="4_21clq"]
+[ext_resource type="Resource" uid="uid://d3o4f62j2xdoo" path="res://Combat/Actions/Attacks/Kick.tres" id="5_b3v5l"]
+[ext_resource type="Resource" uid="uid://cbq1k5bqbvqff" path="res://Combat/Actions/Attacks/Brace.tres" id="6_beqjv"]
+[ext_resource type="Script" uid="uid://pg1hlkacjs8m" path="res://Characters/Player Definitions/Stat_Sheet.gd" id="7_vqvo6"]
+[ext_resource type="Texture2D" uid="uid://c85nlg5hipbep" path="res://Assets/Basic_Fighter_Brown_PNG.png" id="8_b5eie"]
+
+[sub_resource type="Resource" id="Resource_0pv5p"]
+script = ExtResource("2_ggwc1")
+metadata/_custom_type_script = "uid://7st3qih0x1ja"
+
+[resource]
+script = ExtResource("7_vqvo6")
+CharacterName = "Tom"
+sprite = ExtResource("8_b5eie")
+enemyAI = SubResource("Resource_0pv5p")
+move_list = Array[ExtResource("3_8v0st")]([ExtResource("4_21clq"), ExtResource("5_b3v5l"), ExtResource("6_beqjv")])
+Max_HP = 20
+Resilience = 5
+Strength = 8
+Dexterity = 6
+Perception = 4
+CT = 10
+hp = 20
+metadata/_custom_type_script = "uid://pg1hlkacjs8m"

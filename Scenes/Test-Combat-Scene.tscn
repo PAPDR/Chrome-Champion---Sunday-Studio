@@ -1,35 +1,118 @@
 [gd_scene format=3 uid="uid://cyjm4oo0tvlsx"]
 
 [ext_resource type="PackedScene" uid="uid://du26diwa7yhi7" path="res://Combat/Combat Controler/CombatController.tscn" id="1_as7tw"]
-[ext_resource type="Resource" uid="uid://dp7epclh3fcno" path="res://Characters/Player Definitions/SampleCharacter.tres" id="3_c7il1"]
-[ext_resource type="Script" uid="uid://m5t2llmvxnbu" path="res://Characters/Enemy_Character_Entity.gd" id="4_vr058"]
-[ext_resource type="Script" uid="uid://6h8betc2efpl" path="res://Combat/Cybernetics/Cybernetic.gd" id="5_srrc3"]
-[ext_resource type="Script" uid="uid://hjmy7nanieya" path="res://Combat/Actions/Action.gd" id="5_u0xc6"]
-[ext_resource type="Script" uid="uid://b4yi4d0dode2c" path="res://Characters/Player Characters/Player_Character_Entity.gd" id="5_vr058"]
+[ext_resource type="PackedScene" uid="uid://b8griakd6oxpy" path="res://Scenes/Player_Entity.tscn" id="2_supa8"]
+[ext_resource type="Resource" uid="uid://dp7epclh3fcno" path="res://Characters/Stat Sheets/Player/John.tres" id="3_c7il1"]
+[ext_resource type="PackedScene" uid="uid://bvh16e5qvf26q" path="res://Scenes/Enemy_Character_Entity.tscn" id="3_l5cuo"]
+[ext_resource type="Resource" uid="uid://ibne1chxnhq1" path="res://Characters/Stat Sheets/Player/Chad.tres" id="5_bsrca"]
 [ext_resource type="Script" uid="uid://pg1hlkacjs8m" path="res://Characters/Player Definitions/Stat_Sheet.gd" id="6_srrc3"]
-
-[sub_resource type="Resource" id="Resource_dc7v4"]
-script = ExtResource("6_srrc3")
-CharacterName = "Todd (Enemy)"
-Max_HP = 10
-Resilience = 6
-Strength = 6
-Dexterity = 6
-Perception = 6
-CT = 6
-hp = 10
-metadata/_custom_type_script = "uid://pg1hlkacjs8m"
+[ext_resource type="Resource" uid="uid://btan8tnxfsgtn" path="res://Characters/Stat Sheets/Player/Jack.tres" id="6_supa8"]
+[ext_resource type="Resource" uid="uid://dm01544k2sfmr" path="res://Characters/Stat Sheets/Enemies/Tom.tres" id="8_l5cuo"]
+[ext_resource type="Resource" uid="uid://i5abqppp3fyn" path="res://Characters/Stat Sheets/Enemies/Robert.tres" id="10_3d8mm"]
+[ext_resource type="Texture2D" uid="uid://bi0uui1arqgi4" path="res://Assets/Basic_Fighter_Blue_PNG.png" id="10_bsrca"]
+[ext_resource type="Resource" uid="uid://cbmquuaocc7o6" path="res://Characters/Stat Sheets/Enemies/Bill.tres" id="10_supa8"]
+[ext_resource type="Script" uid="uid://b6iakskt7i6d8" path="res://Scenes/CombatUI.gd" id="12_l5cuo"]
 
 [node name="TestCombatScene" type="Node2D" unique_id=1882182739]
 
-[node name="CombatController" parent="." unique_id=862250006 instance=ExtResource("1_as7tw")]
+[node name="CombatController" parent="." unique_id=862250006 node_paths=PackedStringArray("player_spawn_points", "enemy_spawn_points", "player_fighters_container", "enemy_fighters_container") instance=ExtResource("1_as7tw")]
+position = Vector2(96, 16)
+player_entity_scene = ExtResource("2_supa8")
+enemy_entity_scene = ExtResource("3_l5cuo")
+player_team = Array[ExtResource("6_srrc3")]([ExtResource("5_bsrca"), ExtResource("6_supa8"), ExtResource("3_c7il1")])
+enemy_team = Array[ExtResource("6_srrc3")]([ExtResource("8_l5cuo"), ExtResource("10_3d8mm"), ExtResource("10_supa8")])
+player_spawn_points = NodePath("../PlayerSpawnPoints")
+enemy_spawn_points = NodePath("../EnemySpawnPoints")
+player_fighters_container = NodePath("PlayerFighters")
+enemy_fighters_container = NodePath("EnemyFighters")
 
-[node name="Player_Entity" type="Node2D" parent="CombatController" unique_id=1098428249]
-script = ExtResource("5_vr058")
-stat_sheet_instance = ExtResource("3_c7il1")
-metadata/_custom_type_script = "uid://b4yi4d0dode2c"
+[node name="PlayerFighters" type="Node2D" parent="CombatController" unique_id=1648042313]
 
-[node name="Enemy_Character_Entity" type="Node2D" parent="CombatController" unique_id=200433971]
-script = ExtResource("4_vr058")
-stat_sheet_instance = SubResource("Resource_dc7v4")
-metadata/_custom_type_script = "uid://m5t2llmvxnbu"
+[node name="EnemyFighters" type="Node2D" parent="CombatController" unique_id=1954143189]
+
+[node name="PlayerSpawnPoints" type="Node2D" parent="." unique_id=321768997]
+position = Vector2(64, 0)
+
+[node name="Player 1" type="Marker2D" parent="PlayerSpawnPoints" unique_id=1893755463]
+position = Vector2(384, 288)
+
+[node name="Player 2" type="Marker2D" parent="PlayerSpawnPoints" unique_id=800583847]
+position = Vector2(192, 288)
+
+[node name="Player 3" type="Marker2D" parent="PlayerSpawnPoints" unique_id=143197020]
+position = Vector2(0, 288)
+
+[node name="EnemySpawnPoints" type="Node2D" parent="." unique_id=1415621196]
+position = Vector2(1000, 16)
+
+[node name="Enemy 1" type="Marker2D" parent="EnemySpawnPoints" unique_id=1743502767]
+position = Vector2(88, 272)
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemySpawnPoints/Enemy 1" unique_id=930732686]
+visible = false
+position = Vector2(-973, -103)
+scale = Vector2(0.2, 0.207)
+texture = ExtResource("10_bsrca")
+
+[node name="Enemy 2" type="Marker2D" parent="EnemySpawnPoints" unique_id=187253236]
+position = Vector2(-104, 272)
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemySpawnPoints/Enemy 2" unique_id=107216064]
+visible = false
+position = Vector2(-701, -103)
+scale = Vector2(0.2, 0.207)
+texture = ExtResource("10_bsrca")
+
+[node name="Enemy 3" type="Marker2D" parent="EnemySpawnPoints" unique_id=1280992187]
+position = Vector2(-296, 272)
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemySpawnPoints/Enemy 3" unique_id=1722603134]
+visible = false
+position = Vector2(-429, -103)
+scale = Vector2(0.2, 0.207)
+texture = ExtResource("10_bsrca")
+
+[node name="CombatUI" type="CanvasLayer" parent="." unique_id=930485210]
+script = ExtResource("12_l5cuo")
+
+[node name="ActionPanel" type="Control" parent="CombatUI" unique_id=531326599]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="CombatUI/ActionPanel" unique_id=1679172348]
+layout_mode = 0
+offset_left = 552.0
+offset_top = -504.0
+offset_right = 560.0
+offset_bottom = -464.0
+
+[node name="Button3" type="Button" parent="CombatUI/ActionPanel" unique_id=207379605]
+layout_mode = 0
+offset_left = 564.0
+offset_top = -504.0
+offset_right = 572.0
+offset_bottom = -464.0
+
+[node name="Button2" type="Button" parent="CombatUI/ActionPanel" unique_id=1670058587]
+layout_mode = 0
+offset_left = 536.0
+offset_top = -512.0
+offset_right = 544.0
+offset_bottom = -472.0
+
+[node name="TargetPanel" type="Control" parent="CombatUI" unique_id=957900032]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TurnInfo" type="Control" parent="CombatUI" unique_id=1321291458]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

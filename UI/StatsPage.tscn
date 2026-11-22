@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://50xx0228jmgq" path="res://UI/stats_page.gd" id="1_goiq4"]
 [ext_resource type="Texture2D" uid="uid://bcyf2tjkjimat" path="res://icon.svg" id="1_yu6a4"]
-[ext_resource type="Resource" uid="uid://dp7epclh3fcno" path="res://Characters/Player Definitions/SampleCharacter.tres" id="2_2jajh"]
+[ext_resource type="Resource" uid="uid://dp7epclh3fcno" path="res://Characters/Stat Sheets/Player/John.tres" id="2_2jajh"]
 
 [node name="StatsPage" type="Control" unique_id=1721564873 node_paths=PackedStringArray("portrait", "bio", "character_name", "character_class", "stat_grid")]
 layout_mode = 3

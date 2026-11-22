@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bvh16e5qvf26q"]
+
+[ext_resource type="Script" uid="uid://m5t2llmvxnbu" path="res://Characters/Player Definitions/Enemy_Character_Entity.gd" id="1_an63e"]
+[ext_resource type="Texture2D" uid="uid://c85nlg5hipbep" path="res://Assets/Basic_Fighter_Brown_PNG.png" id="2_q58l1"]
+
+[node name="EnemyCharacterEntity" type="Node2D" unique_id=1657354491]
+script = ExtResource("1_an63e")
+
+[node name="CharacterSprite" type="Sprite2D" parent="." unique_id=322111895]
+scale = Vector2(0.3, 0.272)
+texture = ExtResource("2_q58l1")
+flip_h = true

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b8griakd6oxpy"]
+
+[ext_resource type="Script" uid="uid://b4yi4d0dode2c" path="res://Characters/Player Definitions/Player_Character_Entity.gd" id="1_us40n"]
+[ext_resource type="Texture2D" uid="uid://bi0uui1arqgi4" path="res://Assets/Basic_Fighter_Blue_PNG.png" id="2_x6881"]
+
+[node name="PlayerEntity" type="Node2D" unique_id=1669640895]
+script = ExtResource("1_us40n")
+
+[node name="CharacterSprite" type="Sprite2D" parent="." unique_id=1033483658]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_x6881")

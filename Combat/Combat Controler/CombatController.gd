@@ -12,16 +12,43 @@ var initiative_point : int = 0 #Where in the initiative order it is
 @export var health_bar_scene: PackedScene
 @export var combat_dialogue : CanvasLayer
 
+@export_group("Fighter Setup")
+
+@export var player_entity_scene: PackedScene
+@export var enemy_entity_scene: PackedScene
+
+@export var player_team: Array[stat_sheet]
+@export var enemy_team: Array[stat_sheet]
+
+@export var player_spawn_points: Node2D
+@export var enemy_spawn_points: Node2D
+
+@export var player_fighters_container: Node2D
+@export var enemy_fighters_container: Node2D
+
+@onready var combat_ui = $"../CombatUI"
+
+
 var last_action_used : Action_Choice 
 
 
 func _ready():
-
-	#At initialization move all children to initiative
-	for child in get_children():
-		add_to_initiative(child)
-	print(initiative_order.size())
-	start_combat()
+	spawn_team(
+		player_team,
+		player_entity_scene,
+		player_spawn_points,
+		player_fighters_container
+	)
+	spawn_team(
+		enemy_team,
+		enemy_entity_scene,
+		enemy_spawn_points,
+		enemy_fighters_container
+	)
+	
+	print("Fighters spawned: ", initiative_order.size())
+	if initiative_order.size() > 0:
+		start_combat()
 	
 #Starts combat from the start of the round
 func start_combat():
@@ -63,7 +90,35 @@ func add_to_initiative(character : Node = null, initiative : int = 0):
 			bar.setup(character)
 			
 		
+func spawn_team(
+	team: Array[stat_sheet],
+	entity_scene: PackedScene,
+	spawn_points: Node2D,
+	fighter_container: Node2D
+):
+	var points = spawn_points.get_children()
+	for i in range(team.size()):
+		# Make sure we have a spawn point available
+		if i >= points.size():
+			push_warning("Not enough spawn points for this team!")
+			break
 
+		# Create a fighter from the appropriate scene
+		var fighter = entity_scene.instantiate() as Character_Entity
+		print("Spawned scene: ", fighter.scene_file_path)
+		print("Sprite node: ", fighter.get_node_or_null("CharacterSprite"))
+
+		# Give this fighter its own copy of its stats
+		fighter.stat_sheet_instance = team[i].duplicate(true)
+		fighter.stat_sheet_instance.set_up()
+
+		# Add the fighter to the scene and position it
+		fighter_container.add_child(fighter)
+		fighter.global_position = points[i].global_position
+		
+
+		# Register the fighter with the combat controlle
+		add_to_initiative(fighter)
 
 #STATE MACHINE CONTROLLER ----------------------------------------------
 func start_turn(character: Character_Entity):
@@ -76,6 +131,7 @@ func start_turn(character: Character_Entity):
 #Starts the player turn (activates player related UI)
 func start_player_turn(character: Player_Entity):
 	print("Start Player Turn")
+	combat_ui.show_action_panel()
 	await dialogue_state(DialogueStorage.PLAYER_COMBAT)
 	do_action(character, Globals.create_action_choice(Globals.BASIC_ATTACK, enemy_character_list[0]))
 	new_turn_start()
@@ -151,3 +207,4 @@ func get_turn_entity_name() -> String:
 
 func get_action_used() -> Action_Choice:
 	return last_action_used
+	

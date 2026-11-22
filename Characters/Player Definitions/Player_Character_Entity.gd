@@ -1,3 +1,4 @@
+@tool
 extends Character_Entity
 class_name Player_Entity
 #Player character only

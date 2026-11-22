@@ -1,3 +1,4 @@
+@tool
 extends Node2D
 #Character Entity defines a character with stats, moves etc
 class_name Character_Entity
@@ -7,7 +8,11 @@ signal turn_ended(character: Character_Entity) #End signal that tells the contro
 signal turn_started(character: Character_Entity) #Start Turn Signal
 
 #Sheet that contains the stat_sheet
-@export var stat_sheet_instance : stat_sheet
+@export var stat_sheet_instance: stat_sheet:
+	set(value):
+		stat_sheet_instance = value
+		if Engine.is_editor_hint():
+			update_character_sprite()
 var is_bracing : bool=false
 var metal_bones_active : bool = false
 
@@ -59,3 +64,21 @@ func activate_vantage_eye():
 	if stat_sheet_instance.has_cybernetic(Cybernetic.CyberneticType.VANTAGE_EYE):
 		vantage_eye_active = true
 		vantage_eye_turns_remaining = 2
+		
+
+@onready var character_sprite: Sprite2D = $CharacterSprite
+
+func _ready():
+	update_character_sprite()
+
+func update_character_sprite():
+	if stat_sheet_instance == null:
+		print("ERROR: Stat sheet is missing")
+		return
+	if character_sprite == null:
+		print("ERROR: CharacterSprite is missing")
+		return
+
+	character_sprite.texture = stat_sheet_instance.sprite
+	character_sprite.visible = true
+		
