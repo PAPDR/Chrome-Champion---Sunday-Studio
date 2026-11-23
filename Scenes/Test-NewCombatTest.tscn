@@ -1,3 +1,16 @@
 [gd_scene format=3 uid="uid://bsioo3s6dicir"]
 
+[ext_resource type="Script" uid="uid://b4o7vyqcwhyfl" path="res://Scenes/test_new_combat_test.gd" id="1_afbv7"]
+[ext_resource type="PackedScene" uid="uid://bob7a4wtn7bu7" path="res://Combat/Combat Controler/NewCombatController.tscn" id="1_ox42p"]
+[ext_resource type="Resource" uid="uid://btan8tnxfsgtn" path="res://Characters/Stat Sheets/Player/Jack.tres" id="3_05f1m"]
+[ext_resource type="Script" uid="uid://b4yi4d0dode2c" path="res://Characters/Player Definitions/Player_Character_Entity.gd" id="3_afbv7"]
+
 [node name="NewCombatTest" type="Node2D" unique_id=1541502521]
+script = ExtResource("1_afbv7")
+
+[node name="NewCombatController" parent="." unique_id=862250006 instance=ExtResource("1_ox42p")]
+
+[node name="Player_Entity" type="Node2D" parent="NewCombatController" unique_id=993047138]
+script = ExtResource("3_afbv7")
+stat_sheet_instance = ExtResource("3_05f1m")
+metadata/_custom_type_script = "uid://b4yi4d0dode2c"

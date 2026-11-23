@@ -12,46 +12,25 @@ var initiative_point : int = 0 #Where in the initiative order it is
 @export var health_bar_scene: PackedScene
 @export var combat_dialogue : CanvasLayer
 
-@export var combat_selector : CombatSelection #Combat Selector
-
-
-@export_group("Fighter Setup")
-
-@export var player_entity_scene: PackedScene
-@export var enemy_entity_scene: PackedScene
-
-@export var player_team: Array[stat_sheet]
-@export var enemy_team: Array[stat_sheet]
-
-@export var player_spawn_points: Node2D
-@export var enemy_spawn_points: Node2D
-
-@export var player_fighters_container: Node2D
-@export var enemy_fighters_container: Node2D
-
-@onready var combat_ui = $"../CombatUI"
+@export var combat_selection : CombatSelection
 
 
 var last_action_used : Action_Choice 
 
 
+#Player Choice Signal
+signal player_choice_made(Action)
+
+
 func _ready():
-	spawn_team(
-		player_team,
-		player_entity_scene,
-		player_spawn_points,
-		player_fighters_container
-	)
-	spawn_team(
-		enemy_team,
-		enemy_entity_scene,
-		enemy_spawn_points,
-		enemy_fighters_container
-	)
+	#Set Up Singals
+	SignalBus.action_button_press.connect(action_button_pressed)
 	
-	print("Fighters spawned: ", initiative_order.size())
-	if initiative_order.size() > 0:
-		start_combat()
+	#At initialization move all children to initiative
+	for child in get_children():
+		add_to_initiative(child)
+	print(initiative_order.size())
+	start_combat()
 	
 #Starts combat from the start of the round
 func start_combat():
@@ -60,6 +39,10 @@ func start_combat():
 	start_turn(turn_character)
 	pass
 
+#For testing, state machine should not depend on process
+func _process(delta):
+	if Input.is_action_just_pressed("ui_left"):
+		player_character_list[0].take_damage(2)
 
 func add_to_initiative(character : Node = null, initiative : int = 0):
 	if  character is Character_Entity:
@@ -89,35 +72,7 @@ func add_to_initiative(character : Node = null, initiative : int = 0):
 			bar.setup(character)
 			
 		
-func spawn_team(
-	team: Array[stat_sheet],
-	entity_scene: PackedScene,
-	spawn_points: Node2D,
-	fighter_container: Node2D
-):
-	var points = spawn_points.get_children()
-	for i in range(team.size()):
-		# Make sure we have a spawn point available
-		if i >= points.size():
-			push_warning("Not enough spawn points for this team!")
-			break
 
-		# Create a fighter from the appropriate scene
-		var fighter = entity_scene.instantiate() as Character_Entity
-		print("Spawned scene: ", fighter.scene_file_path)
-		print("Sprite node: ", fighter.get_node_or_null("CharacterSprite"))
-
-		# Give this fighter its own copy of its stats
-		fighter.stat_sheet_instance = team[i].duplicate(true)
-		fighter.stat_sheet_instance.set_up()
-
-		# Add the fighter to the scene and position it
-		fighter_container.add_child(fighter)
-		fighter.global_position = points[i].global_position
-		
-
-		# Register the fighter with the combat controlle
-		add_to_initiative(fighter)
 
 #STATE MACHINE CONTROLLER ----------------------------------------------
 func start_turn(character: Character_Entity):
@@ -130,10 +85,13 @@ func start_turn(character: Character_Entity):
 #Starts the player turn (activates player related UI)
 func start_player_turn(character: Player_Entity):
 	print("Start Player Turn")
-	combat_selector.set_up_character(character)
-	var action_button : Action_Button = await SignalBus.action_button_press
-	print(action_button.action.name)
-	do_action(character, Globals.create_action_choice(Globals.BASIC_ATTACK, enemy_character_list[0]))
+	combat_selection.visible = true
+	#Fill the Combat UI with character data
+	combat_selection.set_up_character(character)
+	var action_chosen : Action = await player_choice_made
+	#Does the action
+	do_action_target(character, action_chosen, enemy_character_list[0])
+	combat_selection.visible = false
 	new_turn_start()
 	pass
 
@@ -180,15 +138,33 @@ func dialogue_state(dialogue_option : Resource):
 func do_action(character: Character_Entity, action_choice: Action_Choice):
 	var move = action_choice.action
 	var target = action_choice.target
-	match move.action_type:
-		Action.ActionType.ATTACK:
-			character.is_bracing = false
-			target.take_damage(Globals.damage_calculation(character, target, move))
+	
+	target.take_damage(Globals.damage_calculation(character, target, move))
 
-		Action.ActionType.DEFENSE:
-			if move.name == "Brace":
-				character.is_bracing = true	
+#Runs Do action but uses action and target seperatly
+func do_action_target(character: Character_Entity, action: Action, target: Character_Entity):
+	var action_choice : Action_Choice = Action_Choice.new()
+	action_choice.action = action
+	action_choice.target = target
+	do_action(character, action_choice)
 #----------------------------------------------------------
+
+#----------------------------------------------------------
+#SIGNALS
+func action_button_pressed(button : Action_Button):
+	print(button)
+	player_choice_made.emit(button.action)
+
+
+#------------------------------------------------------------
+#COMBAT SELECTION
+
+func spawn_player(stats : stat_sheet):
+	var player : Player_Entity = Globals.PLAYER_CHARACTER_ENTITY.instantiate()
+	player.stat_sheet_instance = stats
+	#Set Up Everything Needed
+	add_child(player)
+	add_to_initiative(player)
 
 #GET INFO-------------------------------------------------------
 func get_enemy_list() -> Array:
@@ -207,4 +183,3 @@ func get_turn_entity_name() -> String:
 
 func get_action_used() -> Action_Choice:
 	return last_action_used
-	

@@ -3,7 +3,7 @@ class_name  CombatSelection
 
 @onready var action_description = $ActionDescription
 @onready var stat_labels = $"Stat Labels"
-@onready var character_entity = $Character_Entity
+
 
 #Textures
 @onready var player_head_shot = $Background/PlayerHeadShot

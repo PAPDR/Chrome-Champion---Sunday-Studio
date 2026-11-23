@@ -2,15 +2,17 @@
 
 [ext_resource type="Script" uid="uid://6h8betc2efpl" path="res://Combat/Cybernetics/Cybernetic.gd" id="1_cyras"]
 [ext_resource type="Script" uid="uid://hjmy7nanieya" path="res://Combat/Actions/Action.gd" id="2_581dm"]
+[ext_resource type="Texture2D" uid="uid://3masid78vab3" path="res://Assets/HeadshotTest.png" id="2_qwsj3"]
 [ext_resource type="Resource" uid="uid://q17mwn0qqmm" path="res://Combat/Actions/Attacks/Punch.tres" id="3_8iw1k"]
 [ext_resource type="Script" uid="uid://pg1hlkacjs8m" path="res://Characters/Player Definitions/Stat_Sheet.gd" id="3_aftck"]
-[ext_resource type="Resource" uid="uid://d3o4f62j2xdoo" path="res://Combat/Actions/Attacks/Kick.tres" id="4_qwsj3"]
+[ext_resource type="Resource" uid="uid://d3o4f62j2xdoo" path="res://Combat/Actions/Attacks/kick.tres" id="4_qwsj3"]
 [ext_resource type="Resource" uid="uid://cbq1k5bqbvqff" path="res://Combat/Actions/Attacks/Brace.tres" id="5_tliik"]
 [ext_resource type="Texture2D" uid="uid://bi0uui1arqgi4" path="res://Assets/Basic_Fighter_Blue_PNG.png" id="7_jtyd3"]
 
 [resource]
 script = ExtResource("3_aftck")
 CharacterName = "Jack"
+headshot = ExtResource("2_qwsj3")
 sprite = ExtResource("7_jtyd3")
 move_list = Array[ExtResource("2_581dm")]([ExtResource("3_8iw1k"), ExtResource("4_qwsj3"), ExtResource("5_tliik")])
 Max_HP = 20

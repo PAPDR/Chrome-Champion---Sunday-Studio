@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c0avivqtn63f6" path="res://UI/CombatSelectorUI/combat_selection.gd" id="1_ee1bs"]
 [ext_resource type="Texture2D" uid="uid://d2cvmey1453qe" path="res://Assets/ui_assets/ui_fight_background.PNG" id="1_hwixa"]
 [ext_resource type="PackedScene" uid="uid://ijk5m274bptw" path="res://UI/CombatSelectorUI/CombatSelectorButton.tscn" id="3_t2exj"]
+[ext_resource type="Resource" uid="uid://q17mwn0qqmm" path="res://Combat/Actions/Attacks/Punch.tres" id="4_ee1bs"]
 
 [node name="CombatSelection" type="Control" unique_id=1271784666]
 layout_mode = 3
@@ -78,6 +79,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Punch"
 hover_description = "Throw a punch"
+action = ExtResource("4_ee1bs")
 
 [node name="KickButton" parent="." unique_id=691608660 instance=ExtResource("3_t2exj")]
 custom_minimum_size = Vector2(0, 80)

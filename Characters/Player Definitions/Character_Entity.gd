@@ -4,8 +4,18 @@ extends Node2D
 class_name Character_Entity
 
 
+
+
 signal turn_ended(character: Character_Entity) #End signal that tells the controller that the turn has ended
 signal turn_started(character: Character_Entity) #Start Turn Signal
+
+@onready var character_sprite = $CharacterSprite
+@onready var healthbar = $HealthBar
+
+
+signal character_entity_ready
+
+
 
 #Sheet that contains the stat_sheet
 @export var stat_sheet_instance: stat_sheet:
@@ -19,6 +29,7 @@ var metal_bones_active : bool = false
 var vantage_eye_active : bool = false
 var vantage_eye_turns_remaining : int = 0
 
+	
 
 #-------------------------------------------------------
 #Tells the entity that their turn has started
@@ -66,19 +77,31 @@ func activate_vantage_eye():
 		vantage_eye_turns_remaining = 2
 		
 
-@onready var character_sprite: Sprite2D = $CharacterSprite
+
 
 func _ready():
+	print("sprite: ", character_sprite)
 	update_character_sprite()
+	stat_sheet_instance.health_change.connect(update_health)
+	
+	
 
 func update_character_sprite():
 	if stat_sheet_instance == null:
 		print("ERROR: Stat sheet is missing")
 		return
-	if character_sprite == null:
+	if stat_sheet_instance.sprite == null || character_sprite == null:
 		print("ERROR: CharacterSprite is missing")
 		return
 
 	character_sprite.texture = stat_sheet_instance.sprite
 	character_sprite.visible = true
-		
+
+
+#HP BAR
+func health_set_up():
+	healthbar.max_value = stat_sheet_instance.Max_HP
+	healthbar.value = stat_sheet_instance.hp
+
+func update_health():
+	healthbar.value = stat_sheet_instance.hp

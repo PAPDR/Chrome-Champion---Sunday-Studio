@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://xob355xl4ih0"]
+
+[ext_resource type="Script" uid="uid://dlswewixeayo4" path="res://Characters/Player Definitions/Character_Entity.gd" id="1_bheay"]
+
+[node name="Character_Entity" type="Node2D" unique_id=447926184]
+script = ExtResource("1_bheay")
+
+[node name="CharacterSprite" type="Sprite2D" parent="." unique_id=1876010329]
+scale = Vector2(0.3, 0.3)
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1614411200]
+offset_left = -192.0
+offset_top = 184.0
+offset_right = 200.0
+offset_bottom = 211.0

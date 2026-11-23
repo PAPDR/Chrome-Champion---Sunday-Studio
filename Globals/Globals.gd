@@ -3,6 +3,9 @@ extends Node
 
 const BASIC_ATTACK = preload("uid://b71pkrcowd1tl")
 
+const PLAYER_CHARACTER_ENTITY = preload("uid://f5pgury83wru")
+const CHARACTER_ENTITY = preload("uid://xob355xl4ih0")
+
 
 func create_action_choice(action: Action, choice: Character_Entity):
 	var new = Action_Choice.new()
