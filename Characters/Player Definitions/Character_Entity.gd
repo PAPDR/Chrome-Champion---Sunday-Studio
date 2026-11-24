@@ -80,7 +80,7 @@ func activate_vantage_eye():
 
 
 func _ready():
-	print("sprite: ", character_sprite)
+	health_set_up()
 	update_character_sprite()
 	stat_sheet_instance.health_change.connect(update_health)
 	
@@ -95,6 +95,7 @@ func update_character_sprite():
 		return
 
 	character_sprite.texture = stat_sheet_instance.sprite
+	character_sprite.scale = Vector2(0.3,0.3) #TEMP - REPLACE WITH NEW FIXING FUNCTION
 	character_sprite.visible = true
 
 
@@ -103,5 +104,6 @@ func health_set_up():
 	healthbar.max_value = stat_sheet_instance.Max_HP
 	healthbar.value = stat_sheet_instance.hp
 
-func update_health():
-	healthbar.value = stat_sheet_instance.hp
+func update_health(max_hp: int,hp: int) -> void:
+	healthbar.max_value = max_hp
+	healthbar.value = hp

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bpnexkxirhee2"]
+
+[ext_resource type="Script" uid="uid://m5t2llmvxnbu" path="res://Characters/Player Definitions/Enemy_Character_Entity.gd" id="1_5hb8i"]
+
+[node name="EnemyCharacterEntity" type="Node2D" unique_id=750122956]
+script = ExtResource("1_5hb8i")
+
+[node name="CharacterSprite" type="Sprite2D" parent="." unique_id=358590875]
+scale = Vector2(0.3, 0.3)
+flip_h = true
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=879766523]
+offset_left = -128.0
+offset_top = 192.0
+offset_right = 128.0
+offset_bottom = 219.0

@@ -2,15 +2,45 @@
 
 [ext_resource type="Script" uid="uid://b4o7vyqcwhyfl" path="res://Scenes/test_new_combat_test.gd" id="1_afbv7"]
 [ext_resource type="PackedScene" uid="uid://bob7a4wtn7bu7" path="res://Combat/Combat Controler/NewCombatController.tscn" id="1_ox42p"]
+[ext_resource type="Script" uid="uid://pg1hlkacjs8m" path="res://Characters/Player Definitions/Stat_Sheet.gd" id="2_ferrd"]
 [ext_resource type="Resource" uid="uid://btan8tnxfsgtn" path="res://Characters/Stat Sheets/Player/Jack.tres" id="3_05f1m"]
-[ext_resource type="Script" uid="uid://b4yi4d0dode2c" path="res://Characters/Player Definitions/Player_Character_Entity.gd" id="3_afbv7"]
+[ext_resource type="Resource" uid="uid://dp7epclh3fcno" path="res://Characters/Stat Sheets/Player/John.tres" id="4_2l44y"]
+[ext_resource type="Script" uid="uid://6h8betc2efpl" path="res://Combat/Cybernetics/Cybernetic.gd" id="5_hu0v8"]
+[ext_resource type="Texture2D" uid="uid://3masid78vab3" path="res://Assets/HeadshotTest.png" id="6_p58od"]
+[ext_resource type="Script" uid="uid://hjmy7nanieya" path="res://Combat/Actions/Action.gd" id="7_oym1i"]
+[ext_resource type="Texture2D" uid="uid://c85nlg5hipbep" path="res://Assets/Basic_Fighter_Brown_PNG.png" id="8_kvp2q"]
+
+[sub_resource type="Resource" id="Resource_ferrd"]
+script = ExtResource("2_ferrd")
+CharacterName = "ENEMY1"
+headshot = ExtResource("6_p58od")
+sprite = ExtResource("8_kvp2q")
+Max_HP = 25
+Resilience = 4
+Strength = 4
+Dexterity = 4
+Perception = 4
+CT = 4
+hp = 25
+metadata/_custom_type_script = "uid://pg1hlkacjs8m"
+
+[sub_resource type="Resource" id="Resource_2l44y"]
+script = ExtResource("2_ferrd")
+CharacterName = "ENEMY2"
+headshot = ExtResource("6_p58od")
+sprite = ExtResource("8_kvp2q")
+Max_HP = 15
+Resilience = 3
+Strength = 3
+Dexterity = 3
+Perception = 3
+CT = 3
+hp = 15
+metadata/_custom_type_script = "uid://pg1hlkacjs8m"
 
 [node name="NewCombatTest" type="Node2D" unique_id=1541502521]
 script = ExtResource("1_afbv7")
+players = Array[ExtResource("2_ferrd")]([ExtResource("3_05f1m"), ExtResource("4_2l44y")])
+enemies = Array[ExtResource("2_ferrd")]([SubResource("Resource_ferrd"), SubResource("Resource_2l44y")])
 
 [node name="NewCombatController" parent="." unique_id=862250006 instance=ExtResource("1_ox42p")]
-
-[node name="Player_Entity" type="Node2D" parent="NewCombatController" unique_id=993047138]
-script = ExtResource("3_afbv7")
-stat_sheet_instance = ExtResource("3_05f1m")
-metadata/_custom_type_script = "uid://b4yi4d0dode2c"

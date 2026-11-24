@@ -6,7 +6,10 @@
 script = ExtResource("1_gx35l")
 
 [node name="CharacterSprite" type="Sprite2D" parent="." unique_id=358590875]
+scale = Vector2(0.3, 0.3)
 
 [node name="HealthBar" type="ProgressBar" parent="." unique_id=879766523]
-offset_right = 4.0
-offset_bottom = 27.0
+offset_left = -104.0
+offset_top = 176.0
+offset_right = 112.0
+offset_bottom = 203.0

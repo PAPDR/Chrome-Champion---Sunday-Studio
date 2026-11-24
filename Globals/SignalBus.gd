@@ -3,6 +3,7 @@ extends Node
 #Signal Bus is a global Script that handles all the signals used
 signal finished_dialogue
 
+signal combat_ready
 
 #ACTION BUTTON SIGNALS
 signal hovering_button(button : Action_Button)
