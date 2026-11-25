@@ -13,3 +13,7 @@ offset_left = -192.0
 offset_top = 184.0
 offset_right = 200.0
 offset_bottom = 211.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=295559751]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=257040937]

@@ -11,6 +11,9 @@ signal turn_started(character: Character_Entity) #Start Turn Signal
 
 @onready var character_sprite = $CharacterSprite
 @onready var healthbar = $HealthBar
+@onready var area_2d = $Area2D
+@onready var collision_shape = $Area2D/CollisionShape2D
+
 
 
 signal character_entity_ready
@@ -82,6 +85,7 @@ func activate_vantage_eye():
 func _ready():
 	health_set_up()
 	update_character_sprite()
+	update_selection_area()
 	stat_sheet_instance.health_change.connect(update_health)
 	
 	
@@ -98,6 +102,33 @@ func update_character_sprite():
 	character_sprite.scale = Vector2(0.3,0.3) #TEMP - REPLACE WITH NEW FIXING FUNCTION
 	character_sprite.visible = true
 
+#Makes the interactable area (clickable) the size of the sprite
+func update_selection_area():
+	if character_sprite.texture == null:
+		collision_shape.shape = null
+		return
+	
+	#Connect here
+	area_2d.input_event.connect(on_selection_input)
+	var rect = character_sprite.get_rect()
+	
+	var shape = RectangleShape2D.new()
+	shape.size = rect.size
+	
+	collision_shape.shape = shape
+	area_2d.scale = area_2d.scale * Vector2(0.3, 0.8)
+	collision_shape.transform = character_sprite.transform
+	collision_shape.position = character_sprite.transform * rect.get_center()
+	
+	print("Sprite rect: ", character_sprite.get_rect().size)
+	print("Sprite scale: ", character_sprite.scale)
+	print("Area scale: ", area_2d.scale)
+	print("Collision scale: ", collision_shape.scale)
+
+#Handles the sprite being clicked
+func on_selection_input(_viewport, event, _shape_idx):
+	if event is InputEventMouseButton:
+		pass
 
 #HP BAR
 func health_set_up():

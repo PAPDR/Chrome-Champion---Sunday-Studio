@@ -34,6 +34,7 @@ func _ready():
 	#Set Up Singals
 	SignalBus.action_button_press.connect(action_button_pressed)
 	SignalBus.combat_ready.connect(start_combat)#Allows combat to start
+	SignalBus.target_selected.connect(target_selected)
 	
 	#Gets position ready
 	for child in player_placement.get_children():
@@ -97,7 +98,7 @@ func start_turn(character: Character_Entity):
 #Starts the player turn (activates player related UI)
 func start_player_turn(character: Player_Entity):
 	print("Start Player Turn")
-	
+	turn_off_dialogue()
 	combat_selection.visible = true
 	#Fill the Combat UI with character data
 	combat_selection.set_up_character(character)
@@ -107,6 +108,7 @@ func start_player_turn(character: Player_Entity):
 	#Does the action
 	do_action_target(character, action_chosen, enemy_character_list[0])
 	combat_selection.visible = false
+	turn_off_dialogue()
 	new_turn_start()
 	pass
 
@@ -143,6 +145,15 @@ func dialogue_state(dialogue_option : Resource):
 	await DialogueManager.dialogue_ended
 	await get_tree().process_frame
 
+func turn_off_dialogue():
+	combat_dialogue.visible = false
+	combat_dialogue.will_block_other_input = false
+
+func turn_on_dialogue():
+	combat_dialogue.visible = true
+	combat_dialogue.will_block_other_input = false
+
+
 #do_action performs the actual action decided by player or AI.
 #It needs to verify what it is doing (damaging or healing, or etc)
 #Needs to verify that everything is legal (no crashing)
@@ -170,6 +181,9 @@ func action_button_pressed(button : Action_Button):
 	print(button)
 	player_choice_made.emit(button.action)
 
+
+func target_selected(stat : stat_sheet):
+	combat_selection.fill_enemy_stats(stat)
 
 #------------------------------------------------------------
 #COMBAT SELECTION

@@ -36,6 +36,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("6_cs2k0")
 
 [node name="EnemyHealthBars" type="VBoxContainer" parent="Combat-UI/HealthBarController" unique_id=1880394448]
@@ -66,6 +67,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CombatSelection" parent="Combat-UI" unique_id=1271784666 instance=ExtResource("5_fduvj")]
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="EnemyPlacement" type="Node2D" parent="." unique_id=327037537]

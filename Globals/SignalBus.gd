@@ -9,3 +9,5 @@ signal combat_ready
 signal hovering_button(button : Action_Button)
 signal exit_hover_button(button : Action_Button)
 signal action_button_press(button : Action_Button)
+
+signal target_selected(sheet : stat_sheet)

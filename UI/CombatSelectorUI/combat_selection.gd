@@ -10,6 +10,8 @@ class_name  CombatSelection
 #Textures
 @onready var player_head_shot = $Background/PlayerHeadShot
 @onready var enemy_head_shot = $Background/EnemyHeadShot
+@onready var enemy_name = $EnemyName
+@onready var player_name = $PlayerName
 
 
 
@@ -56,6 +58,9 @@ func fill_player_stats(stats : stat_sheet):
 
 		stat_labels.add_child(name_label)
 		stat_labels.add_child(value_label)
+	
+	#Fill the name of the character
+	player_name.text = stats.CharacterName
 
 func fill_enemy_stats(stats : stat_sheet):
 	#remove all children
@@ -75,3 +80,6 @@ func fill_enemy_stats(stats : stat_sheet):
 
 		target_stat_labels.add_child(name_label)
 		target_stat_labels.add_child(value_label)
+		
+	#Fill the name of the character
+	enemy_name.text = stats.CharacterName

@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="stat_sheet" format=3 uid="uid://dp7epclh3fcno"]
 
 [ext_resource type="Script" uid="uid://6h8betc2efpl" path="res://Combat/Cybernetics/Cybernetic.gd" id="1_mj6qs"]
+[ext_resource type="Texture2D" uid="uid://3masid78vab3" path="res://Assets/HeadshotTest.png" id="2_cchw3"]
 [ext_resource type="Script" uid="uid://hjmy7nanieya" path="res://Combat/Actions/Action.gd" id="2_phgk0"]
 [ext_resource type="Resource" uid="uid://q17mwn0qqmm" path="res://Combat/Actions/Attacks/Punch.tres" id="3_cchw3"]
-[ext_resource type="Resource" uid="uid://d3o4f62j2xdoo" path="res://Combat/Actions/Attacks/Kick.tres" id="4_bt2xn"]
+[ext_resource type="Resource" uid="uid://d3o4f62j2xdoo" path="res://Combat/Actions/Attacks/kick.tres" id="4_bt2xn"]
 [ext_resource type="Resource" uid="uid://cbq1k5bqbvqff" path="res://Combat/Actions/Attacks/Brace.tres" id="5_gfdqs"]
 [ext_resource type="Script" uid="uid://pg1hlkacjs8m" path="res://Characters/Player Definitions/Stat_Sheet.gd" id="6_dn7qb"]
 [ext_resource type="Texture2D" uid="uid://bi0uui1arqgi4" path="res://Assets/Basic_Fighter_Blue_PNG.png" id="7_4dd3i"]
@@ -11,6 +12,7 @@
 [resource]
 script = ExtResource("6_dn7qb")
 CharacterName = "John"
+headshot = ExtResource("2_cchw3")
 sprite = ExtResource("7_4dd3i")
 move_list = Array[ExtResource("2_phgk0")]([ExtResource("3_cchw3"), ExtResource("4_bt2xn"), ExtResource("5_gfdqs")])
 Max_HP = 20
